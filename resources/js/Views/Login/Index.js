@@ -7,7 +7,7 @@ const Login = () => {
             <main className="form-signin">
                 <form>
                     <img className="mb-4" src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57" />
-                    <h1 className="h3 mb-3 fw-normal">Lütfen bilgilerinizi giriniz</h1>
+                    <h1 className="h3 mb-3 fw-normal">Lütfen giriş yapın</h1>
                     <div className="form-floating">
                         <input type="email" className="form-control" id="email" name="email" placeholder="name@example.com" />
                         <label htmlFor="email">Email adresiniz</label>
