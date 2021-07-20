@@ -59,29 +59,26 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-
         $request->validate([
             'email' => 'required|string|email',
-            'password' => 'required|string|confirmed|min:6',
+            'password' => 'required|string',
             'remember_me' => 'boolean'
         ]);
+        $credentials = request(['email', 'password']);
 
-        $credentials = ['email' => $request->email, 'password' => $request->password];
         if (!Auth::attempt($credentials)) {
             return response()->json([
-                'message' => 'Giriş bilgileri hatalı!'
+                'message' => 'Bilgiler Hatalı Kontrol Ediniz'
             ], 401);
         }
 
-        $user = $request->user;
+        $user = $request->user();
         $tokenResult = $user->createToken('Personal Access Token');
         $token = $tokenResult->token;
-
         if ($request->remember_me) {
             $token->expires_at = Carbon::now()->addWeeks(1);
         }
         $token->save();
-
         return response()->json([
             'success' => true,
             'id' => $user->id,
