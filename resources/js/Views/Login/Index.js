@@ -3,16 +3,26 @@ import { Link } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { array } from "yup/lib/locale";
 import { inject, observer } from "mobx-react";
 const Login = (props) => {
     const [errors, setErrors] = useState([]);
 
+    useEffect(() => {
+        if (
+            props.AuthStore.appState &&
+            props.AuthStore.appState.user.access_token
+        ) {
+            return props.history.push("/");
+        }
+    });
+
     const handleSubmit = (values) => {
         axios
             .post("/api/auth/login", { ...values })
             .then((response) => {
+                console.log(response);
                 if (response.data.success) {
                     const userData = {
                         id: response.data.id,
@@ -26,7 +36,8 @@ const Login = (props) => {
                     };
                     /* console.log(response); */
                     props.AuthStore.saveToken(appState);
-                    props.history.push("/");
+                    //props.history.push("/");
+                    window.location.reload("/");
                 } else {
                     alert("Giriş Yapmadınız!");
                 }
@@ -144,7 +155,10 @@ const Login = (props) => {
                                 >
                                     Giriş Yap
                                 </button>
-                                <Link className="login-register-a" to="/register">
+                                <Link
+                                    className="login-register-a"
+                                    to="/register"
+                                >
                                     Kayıt Ol
                                 </Link>
                             </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -8,6 +8,15 @@ import { array } from "yup/lib/locale";
 import { inject, observer } from "mobx-react";
 const Register = (props) => {
     const [errors, setErrors] = useState([]);
+
+    useEffect(() => {
+        if (
+            props.AuthStore.appState &&
+            props.AuthStore.appState.user.access_token
+        ) {
+            return props.history.push("/");
+        }
+    });
 
     const handleSubmit = (values) => {
         axios
@@ -26,7 +35,7 @@ const Register = (props) => {
                     };
                     /* console.log(response); */
                     props.AuthStore.saveToken(appState);
-                    props.history.push('/');
+                    props.history.push("/");
                 } else {
                     alert("Giriş Yapmadınız!");
                 }
@@ -213,4 +222,4 @@ const Register = (props) => {
     );
 };
 
-export default inject('AuthStore')(observer(Register));
+export default inject("AuthStore")(observer(Register));

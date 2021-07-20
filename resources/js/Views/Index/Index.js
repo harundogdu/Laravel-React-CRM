@@ -1,21 +1,14 @@
 import { inject, observer } from "mobx-react";
 import React from "react";
 import { Link } from "react-router-dom";
+import Layout from "../../Components/Layout/front.layout";
 
 const Index = (props) => {
     props.AuthStore.getToken();
-    console.log(props.AuthStore.appState);
-    const logout = () => {
-        props.AuthStore.removeToken();
-        props.history.push('/login');
-    }
+
     return (
-        <div>
-            <Link to="/login"> Login </Link>
-            <Link to="/register"> Register </Link>
-            <button onClick={logout}>Logout</button>
-        </div>
+        <Layout></Layout>
     );
 };
 
-export default inject('AuthStore')(observer(Index));
+export default inject("AuthStore")(observer(Index));

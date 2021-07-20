@@ -101,4 +101,16 @@ class AuthController extends Controller
     {
         return response()->json($request->user, 201);
     }
+
+    public function authenticate(Request $request){
+        $user = [];
+        if(Auth::check()){
+            $user = $request->user();
+        }
+        return response()->json([
+            'user' => $user,
+            'isLoggedIn' => Auth::check()
+        ]);
+    }
+
 }
