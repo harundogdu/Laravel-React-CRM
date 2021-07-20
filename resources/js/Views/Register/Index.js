@@ -5,7 +5,8 @@ import * as Yup from "yup";
 import axios from "axios";
 import { useState } from "react";
 import { array } from "yup/lib/locale";
-const Register = () => {
+import { inject, observer } from "mobx-react";
+const Register = (props) => {
     const [errors, setErrors] = useState([]);
 
     const handleSubmit = (values) => {
@@ -23,8 +24,9 @@ const Register = () => {
                         isLoggedIn: true,
                         user: userData,
                     };
-                    console.log(response);
-                    alert("Kayıt Tamamlandı");
+                    /* console.log(response); */
+                    props.AuthStore.saveToken(appState);
+                    props.history.push('/');
                 } else {
                     alert("Giriş Yapmadınız!");
                 }
@@ -211,4 +213,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default inject('AuthStore')(observer(Register));
