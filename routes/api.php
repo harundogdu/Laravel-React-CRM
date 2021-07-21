@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\product\indexController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,7 @@ Route::group([
 ],function(){
     Route::post('logout',[AuthController::class,'logout']);
     Route::post('authenticate',[AuthController::class,'authenticate']);
+    Route::resource('product', indexController::class);
 });
 
 
