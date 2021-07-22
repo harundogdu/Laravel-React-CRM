@@ -27,11 +27,6 @@ Route::group([
     'middleware' => ['auth:api']
 ],function(){
     Route::post('logout',[AuthController::class,'logout']);
-    Route::post('authenticate',[AuthController::class,'authenticate']);
+    Route::post('/authenticate',[AuthController::class,'authenticate']);
     Route::resource('product', indexController::class);
-});
-
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
 });

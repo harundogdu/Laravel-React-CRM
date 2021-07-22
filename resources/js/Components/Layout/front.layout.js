@@ -14,7 +14,7 @@ const Layout = (props) => {
     const logout = () => {
         axios
             .post(
-                "api/logout",
+                "/api/logout",
                 {},
                 {
                     headers: {
@@ -38,7 +38,7 @@ const Layout = (props) => {
                 : null;
         axios
             .post(
-                "api/authenticate",
+                `/api/authenticate`,
                 {},
                 {
                     headers: {
@@ -54,9 +54,7 @@ const Layout = (props) => {
                 setIsLoggedIn(response.data.isLoggedIn);
             })
             .catch((e) => {
-                if (!e.data.isLoggedIn) {
-                    history.push("/login");
-                }
+                history.push("/login");
             });
     }, []);
 
@@ -81,7 +79,7 @@ const Layout = (props) => {
                                 </NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">
                                     Şifre Değiştir
-                                </NavDropdown.Item>                                
+                                </NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item onClick={logout}>
                                     Çıkış Yap

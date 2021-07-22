@@ -7,14 +7,14 @@ import Layout from "../../Components/Layout/front.layout";
 const Index = (props) => {
     useEffect(() => {
         axios
-            .get("api/product", {
+            .get("/api/product", {
                 headers: {
                     Authorization:
                         "Bearer " + props.AuthStore.appState.user.access_token,
                 },
             })
             .then((response) => {
-                console.log(response);
+                //console.log(response);
             })
             .catch((e) => {
                 console.log(e);

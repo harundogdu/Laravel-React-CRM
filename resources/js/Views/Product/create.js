@@ -9,8 +9,9 @@ import Select from "react-select";
 import axios from "axios";
 import ImageUploader from "react-images-upload";
 import CKEditor from "ckeditor4-react";
+import swal from "sweetalert";
 
-const Index = (props) => {
+const Create = (props) => {
     const [category, setCategories] = useState([]);
     const [pictures, setPictures] = useState([]);
     const [property, setProperty] = useState([]);
@@ -27,9 +28,55 @@ const Index = (props) => {
                 setCategories(res.data.categories);
             })
             .catch((err) => console.log(err));
-    }, []);
+    }, [pictures]);
 
-    const handleSubmit = () => {};
+    const handleSubmit = (values, { resetForm }) => {
+        const data = new FormData();
+
+        pictures.forEach((picture) => {
+            data.append("file[]", picture);
+        });
+
+        data.append("categoryId", values.categoryId);
+        data.append("name", values.name);
+        data.append("modelCode", values.modelCode);
+        data.append("brand", values.brand);
+        data.append("barcode", values.barcode);
+        data.append("buyingPrice", values.buyingPrice);
+        data.append("sellingPrice", values.sellingPrice);
+        data.append("tax", values.tax);
+        data.append("stock", values.stock);
+        data.append("description", values.description);
+        data.append("property", JSON.stringify(property));
+
+        const config = {
+            headers: {
+                Accept: "application/json",
+                "content-type": "multipart/form-data",
+                Authorization:
+                    "Bearer " + props.AuthStore.appState.user.access_token,
+            },
+        };
+        axios
+            .post("/api/product", data, config)
+            .then((res) => {
+                if (res.data.success) {
+                    resetForm({});
+                    setPictures([]);
+                    setProperty([]);
+                    swal(
+                        "İşlem Başarılı!",
+                        "Ürün başarıyla kaydedildi.",
+                        "success"
+                    ).then(() => {
+                        props.history.push("/urunler");
+                    });
+                } else {
+                    swal("İşlem Başarısız!", res.data.message, "error");
+                }
+            })
+            .catch((e) => console.log(e));
+    };
 
     const newProperty = () => {
         setProperty([...property, { property: "", value: "" }]);
@@ -45,11 +92,11 @@ const Index = (props) => {
         property[index][event.target.name] = event.target.value;
         setProperty([...property]);
     };
-    console.log(property);
     return (
         <Layout>
             <Formik
                 initialValues={{
+                    categoryId: "",
                     name: "",
                     modelCode: "",
                     brand: "",
@@ -68,10 +115,14 @@ const Index = (props) => {
                     ),
                     barcode: Yup.string().required("Barkod alanı zorunludur."),
                     brand: Yup.string().required("Marka alanı zorunludur."),
+                    description: Yup.string(),
                     stock: Yup.number()
                         .required("Stok alanı zorunludur.")
                         .positive()
                         .integer(),
+                    buyingPrice: Yup.number().positive().integer(),
+                    sellingPrice: Yup.number().positive().integer(),
+                    tax: Yup.number().positive().integer(),
                 })}
             >
                 {({
@@ -346,4 +397,4 @@ const Index = (props) => {
     );
 };
 
-export default inject("AuthStore")(observer(Index));
+export default inject("AuthStore")(observer(Create));
