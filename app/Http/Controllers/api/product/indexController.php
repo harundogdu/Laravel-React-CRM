@@ -106,7 +106,15 @@ class indexController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = request()->user();
+        $product = Product::whereId($id)->with('property')->with('images')->first();
+        $categories = Category::where('userId', $user->id)->get();
+
+        return response()->json([
+            'success' => true,
+            'product' => $product,
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -118,8 +126,66 @@ class indexController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = request()->user();
+        $control = Product::where('id', $id)->where('userId', $user->id)->count();
+        if ($control == 0) {
+            return response()->json(['success' => false, 'message' => 'Ürün size ait degil']);
+        }
+
+        $all = $request->all();
+        $file = (isset($all['file'])) ? json_decode($all['file'], true) : [];
+        $newFile = (isset($all['newFile'])) ? $all['newFile'] : [];
+        $properties = (isset($all['property'])) ? json_decode($all['property'], true) : [];
+       
+        foreach ($file as $item) {
+            if (isset($item['isRemove'])) {
+                $productImage = ProductImage::where('id', $item['id'])->first();
+                try {
+                    unlink(public_path($productImage->image));
+                } catch (\Exception $e) {
+                }
+                ProductImage::where('id', $item['id'])->delete();
+            }
+        }
+
+        foreach ($newFile as $item) {
+
+            $upload = fileUpload::newUpload(rand(1, 9000), "products", $item, 0);
+            ProductImage::create([
+                'productId' => $id,
+                'path' => $upload
+            ]);
+        }
+
+        ProductProperty::where('productId', $id)->delete();
+        foreach ($properties as $property) {
+            ProductProperty::create([
+                'productId' => $id,
+                'property' => $property['property'],
+                'value' => $property['value']
+            ]);
+        }
+
+
+        unset($all['file']);
+        unset($all['newFile']);
+        unset($all['_method']);
+        unset($all['property']);
+        $create = Product::where('id', $id)->update($all);
+        if ($create) {
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Ürün Düzenleme Başarılı'
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Ürün Eklenemedi'
+            ]);
+        }
     }
+
 
     /**
      * Remove the specified resource from storage.

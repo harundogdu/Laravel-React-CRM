@@ -8,6 +8,7 @@ import FrontRegister from "./Views/Register";
 /* Ürünler */
 import ProductIndex from "./Views/Product/index";
 import ProductCreate from "./Views/Product/create";
+import ProductEdit from "./Views/Product/edit";
 
 const Main = () => (
     <Switch>
@@ -16,6 +17,7 @@ const Main = () => (
         <Route path="/register" component={FrontRegister} />
         <PrivateRoute exact path="/urunler" component={ProductIndex} />
         <PrivateRoute path="/urunler/ekle" component={ProductCreate} />
+        <PrivateRoute path="/urunler/duzenle/:id" component={ProductEdit} />
     </Switch>
 );
 

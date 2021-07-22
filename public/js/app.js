@@ -8232,14 +8232,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _PrivateRoute__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PrivateRoute */ "./resources/js/PrivateRoute.js");
 /* harmony import */ var _Views_Index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Views/Index */ "./resources/js/Views/Index/index.js");
 /* harmony import */ var _Views_Login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Views/Login */ "./resources/js/Views/Login/index.js");
 /* harmony import */ var _Views_Register__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Views/Register */ "./resources/js/Views/Register/index.js");
 /* harmony import */ var _Views_Product_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Views/Product/index */ "./resources/js/Views/Product/index.js");
 /* harmony import */ var _Views_Product_create__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Views/Product/create */ "./resources/js/Views/Product/create.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Views_Product_edit__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Views/Product/edit */ "./resources/js/Views/Product/edit.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -8255,25 +8256,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var Main = function Main() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Switch, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_1__.default, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Switch, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_1__.default, {
       exact: true,
       path: "/",
       component: _Views_Index__WEBPACK_IMPORTED_MODULE_2__.default
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
       path: "/login",
       component: _Views_Login__WEBPACK_IMPORTED_MODULE_3__.default
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
       path: "/register",
       component: _Views_Register__WEBPACK_IMPORTED_MODULE_4__.default
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_1__.default, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_1__.default, {
       exact: true,
       path: "/urunler",
       component: _Views_Product_index__WEBPACK_IMPORTED_MODULE_5__.default
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_1__.default, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_1__.default, {
       path: "/urunler/ekle",
       component: _Views_Product_create__WEBPACK_IMPORTED_MODULE_6__.default
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_1__.default, {
+      path: "/urunler/duzenle/:id",
+      component: _Views_Product_edit__WEBPACK_IMPORTED_MODULE_7__.default
     })]
   });
 };
@@ -9019,6 +9024,490 @@ var Create = function Create(props) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,mobx_react__WEBPACK_IMPORTED_MODULE_11__.inject)("AuthStore")((0,mobx_react__WEBPACK_IMPORTED_MODULE_11__.observer)(Create)));
+
+/***/ }),
+
+/***/ "./resources/js/Views/Product/edit.js":
+/*!********************************************!*\
+  !*** ./resources/js/Views/Product/edit.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var mobx_react__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/dist/mobxreact.esm.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Components_Layout_front_layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/Layout/front.layout */ "./resources/js/Components/Layout/front.layout.js");
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! yup */ "./node_modules/yup/es/index.js");
+/* harmony import */ var _Components_Form_CustomInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Components/Form/CustomInput */ "./resources/js/Components/Form/CustomInput.js");
+/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_images_upload__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-images-upload */ "./node_modules/react-images-upload/compiled.js");
+/* harmony import */ var ckeditor4_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ckeditor4-react */ "./node_modules/ckeditor4-react/dist/ckeditor.js");
+/* harmony import */ var ckeditor4_react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(ckeditor4_react__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var Edit = function Edit(props) {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+      _useState2 = _slicedToArray(_useState, 2),
+      loading = _useState2[0],
+      setLoading = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      category = _useState4[0],
+      setCategories = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState6 = _slicedToArray(_useState5, 2),
+      pictures = _useState6[0],
+      setPictures = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState8 = _slicedToArray(_useState7, 2),
+      property = _useState8[0],
+      setProperty = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState10 = _slicedToArray(_useState9, 2),
+      product = _useState10[0],
+      setProduct = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState12 = _slicedToArray(_useState11, 2),
+      newImages = _useState12[0],
+      setNewImages = _useState12[1];
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState14 = _slicedToArray(_useState13, 2),
+      defaultImages = _useState14[0],
+      setDefaultImages = _useState14[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    axios__WEBPACK_IMPORTED_MODULE_5___default().get("/api/product/".concat(props.match.params.id, "/edit"), {
+      headers: {
+        Authorization: "Bearer " + props.AuthStore.appState.user.access_token
+      }
+    }).then(function (res) {
+      if (res.data.success) {
+        setCategories(res.data.categories);
+        setProduct(res.data.product);
+        setPictures(res.data.product.images);
+        setProperty(res.data.product.property);
+        res.data.product.images.filter(function (x) {
+          return !x.isRemove;
+        }).map(function (item) {
+          defaultImages.push(item.path);
+        });
+        setLoading(false);
+      } else {
+        sweetalert__WEBPACK_IMPORTED_MODULE_8___default()(res.data.message);
+      }
+    })["catch"](function (err) {
+      return console.log(err);
+    });
+  }, []);
+
+  var handleSubmit = function handleSubmit(values, _ref) {
+    var resetForm = _ref.resetForm,
+        setSubmitting = _ref.setSubmitting;
+    var data = new FormData();
+    newImages.forEach(function (picture) {
+      if (typeof picture.id != "number") {
+        data.append("newFile[]", picture);
+      }
+    });
+    data.append("file", JSON.stringify(pictures));
+    data.append("categoryId", values.categoryId);
+    data.append("name", values.name);
+    data.append("modelCode", values.modelCode);
+    data.append("brand", values.brand);
+    data.append("barcode", values.barcode);
+    data.append("buyingPrice", values.buyingPrice);
+    data.append("sellingPrice", values.sellingPrice);
+    data.append("tax", values.tax);
+    data.append("stock", values.stock);
+    data.append("description", values.description);
+    data.append("property", JSON.stringify(property));
+    data.append('_method', 'put');
+    var config = {
+      headers: {
+        Accept: "application/json",
+        "content-type": "multipart/form-data",
+        Authorization: "Bearer " + props.AuthStore.appState.user.access_token
+      }
+    };
+    axios__WEBPACK_IMPORTED_MODULE_5___default().post("/api/product/".concat(product.id), data, config).then(function (res) {
+      if (res.data.success) {
+        setSubmitting(false);
+        sweetalert__WEBPACK_IMPORTED_MODULE_8___default()('İşlem Başarılı', res.data.message, 'success').then(function () {
+          props.history.push('/urunler');
+        });
+      } else {
+        sweetalert__WEBPACK_IMPORTED_MODULE_8___default()(res.data.message);
+        setSubmitting(false);
+      }
+    })["catch"](function (e) {
+      return console.log(e);
+    });
+  };
+
+  var newProperty = function newProperty() {
+    setProperty([].concat(_toConsumableArray(property), [{
+      property: "",
+      value: ""
+    }]));
+  };
+
+  var removeProperty = function removeProperty(index) {
+    var oldProperty = property;
+    oldProperty.splice(index, 1);
+    setProperty(_toConsumableArray(oldProperty));
+  };
+
+  var changeTextInput = function changeTextInput(event, index) {
+    property[index][event.target.name] = event.target.value;
+    setProperty(_toConsumableArray(property));
+  };
+
+  var _onChange = function onChange(picturesImage, allPictures) {
+    if (picturesImage.length > 0) {
+      setNewImages(newImages.concat(picturesImage));
+    }
+
+    var diffrence = defaultImages.filter(function (x) {
+      return !allPictures.includes(x);
+    });
+    diffrence.map(function (item) {
+      var findIndex = defaultImages.findIndex(function (picture) {
+        return picture == item;
+      });
+
+      if (findIndex != -1) {
+        var findIndexImage = pictures.findIndex(function (image) {
+          return image.path == item;
+        });
+        pictures[findIndexImage]["isRemove"] = true;
+        setPictures(_toConsumableArray(pictures));
+      }
+    });
+  };
+
+  if (loading) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+    children: "Loading..."
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Components_Layout_front_layout__WEBPACK_IMPORTED_MODULE_1__.default, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(formik__WEBPACK_IMPORTED_MODULE_2__.Formik, {
+      initialValues: {
+        categoryId: product.categoryId,
+        name: product.name,
+        modelCode: product.modelCode,
+        brand: product.brand,
+        barcode: product.barcode,
+        buyingPrice: product.buyingPrice,
+        sellingPrice: product.sellingPrice,
+        tax: product.tax,
+        stock: product.stock,
+        description: product.description
+      },
+      onSubmit: handleSubmit,
+      validationSchema: yup__WEBPACK_IMPORTED_MODULE_3__.object().shape({
+        name: yup__WEBPACK_IMPORTED_MODULE_3__.string().required("Ürün Adı alanı zorunludur."),
+        modelCode: yup__WEBPACK_IMPORTED_MODULE_3__.string().required("Model Kodu alanı zorunludur."),
+        barcode: yup__WEBPACK_IMPORTED_MODULE_3__.string().required("Barkod alanı zorunludur."),
+        brand: yup__WEBPACK_IMPORTED_MODULE_3__.string().required("Marka alanı zorunludur."),
+        description: yup__WEBPACK_IMPORTED_MODULE_3__.string(),
+        stock: yup__WEBPACK_IMPORTED_MODULE_3__.number().required("Stok alanı zorunludur.").positive().integer(),
+        buyingPrice: yup__WEBPACK_IMPORTED_MODULE_3__.number().positive().integer(),
+        sellingPrice: yup__WEBPACK_IMPORTED_MODULE_3__.number().positive().integer(),
+        tax: yup__WEBPACK_IMPORTED_MODULE_3__.number().positive().integer()
+      }),
+      children: function children(_ref2) {
+        var values = _ref2.values,
+            errors = _ref2.errors,
+            touched = _ref2.touched,
+            handleChange = _ref2.handleChange,
+            handleBlur = _ref2.handleBlur,
+            handleSubmit = _ref2.handleSubmit,
+            setFieldValue = _ref2.setFieldValue,
+            isSubmitting = _ref2.isSubmitting,
+            isValid = _ref2.isValid;
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+          className: "container mt-5",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
+            children: "\xDCr\xFCn G\xFCncelle"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+            className: "row my-3",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+              className: "col-md-6",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Components_Form_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
+                type: "text",
+                title: "\xDCr\xFCn Ad\u0131",
+                placeholder: "\xDCr\xFCn Ad\u0131",
+                value: values.name,
+                handleBlur: handleBlur("name"),
+                handleChange: handleChange("name")
+              }), errors.name && touched.name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                id: "passwordHelpBlock",
+                className: "form-text my-2 text-left text-danger",
+                children: errors.name
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+              className: "col-md-6",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Components_Form_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
+                type: "text",
+                title: "Marka",
+                placeholder: "Marka",
+                value: values.brand,
+                handleBlur: handleBlur("brand"),
+                handleChange: handleChange("brand")
+              }), errors.brand && touched.brand && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                id: "passwordHelpBlock",
+                className: "form-text my-2 text-left text-danger",
+                children: errors.brand
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+            className: "row my-3",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+              className: "col-md-12",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_11__.default, {
+                value: category.find(function (item) {
+                  return item.id === values.categoryId;
+                }),
+                onChange: function onChange(e) {
+                  return setFieldValue("categoryId", e.id);
+                },
+                getOptionLabel: function getOptionLabel(option) {
+                  return option.name;
+                },
+                getOptionValue: function getOptionValue(option) {
+                  return option.id;
+                },
+                placeholder: "Kategori Se\xE7iniz",
+                options: category
+              })
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+            className: "row my-3",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+              className: "col-md-6",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Components_Form_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
+                type: "text",
+                title: "Model Kodu",
+                placeholder: "Model Kodu",
+                value: values.modelCode,
+                handleBlur: handleBlur("modelCode"),
+                handleChange: handleChange("modelCode")
+              }), errors.modelCode && touched.modelCode && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                id: "passwordHelpBlock",
+                className: "form-text my-2 text-left text-danger",
+                children: errors.modelCode
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+              className: "col-md-6",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Components_Form_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
+                type: "text",
+                title: "Barkod",
+                placeholder: "Barkod",
+                value: values.barcode,
+                handleBlur: handleBlur("barcode"),
+                handleChange: handleChange("barcode")
+              }), errors.barcode && touched.barcode && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                id: "passwordHelpBlock",
+                className: "form-text my-2 text-left text-danger",
+                children: errors.barcode
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+            className: "row my-3",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+              className: "col-md-6",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Components_Form_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
+                type: "number",
+                title: "Al\u0131\u015F Fiyat\u0131",
+                placeholder: "Al\u0131\u015F Fiyat\u0131",
+                value: values.buyingPrice,
+                handleBlur: handleBlur("buyingPrice"),
+                handleChange: handleChange("buyingPrice")
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+              className: "col-md-6",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Components_Form_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
+                type: "number",
+                title: "Sat\u0131\u015F Fiyat\u0131",
+                placeholder: "Sat\u0131\u015F Fiyat\u0131",
+                value: values.sellingPrice,
+                handleBlur: handleBlur("sellingPrice"),
+                handleChange: handleChange("sellingPrice")
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+            className: "row my-3",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+              className: "col-md-6",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Components_Form_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
+                type: "number",
+                title: "KDV",
+                placeholder: "KDV",
+                value: values.tax,
+                handleBlur: handleBlur("tax"),
+                handleChange: handleChange("tax")
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+              className: "col-md-6",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Components_Form_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
+                type: "number",
+                title: "Stok",
+                placeholder: "Stok",
+                value: values.stock,
+                handleBlur: handleBlur("stock"),
+                handleChange: handleChange("stock")
+              }), errors.stock && touched.stock && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                id: "passwordHelpBlock",
+                className: "form-text my-2 text-left text-danger",
+                children: errors.stock
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+            className: "row my-3",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+              className: "col-md-12",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
+                children: "\xDCr\xFCn Foto\u011Fraf\u0131"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_images_upload__WEBPACK_IMPORTED_MODULE_6__.default, {
+                defaultImages: defaultImages,
+                withPreview: true,
+                fileTypeError: "Desteklenmeyen format",
+                fileSizeError: "Dosya \xE7ok b\xFCy\xFCk",
+                withIcon: true,
+                buttonText: "Resim Se\xE7",
+                onChange: function onChange(pictureFiles, allPictures) {
+                  return _onChange(pictureFiles, allPictures);
+                },
+                imgExtension: [".jpg", ".gif", ".png", ".gif"],
+                maxFileSize: 5242880
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+            className: "row my-3",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+              className: "col-md-12",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
+                children: "\xDCr\xFCn A\xE7\u0131klamas\u0131"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)((ckeditor4_react__WEBPACK_IMPORTED_MODULE_7___default()), {
+                data: values.description,
+                onChange: function onChange(evt) {
+                  var data = evt.editor.getData();
+                  setFieldValue("description", data);
+                }
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+            className: "row my-3",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+              className: "col-md-12",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+                onClick: newProperty,
+                className: "btn btn-dark w-5",
+                children: "Yeni \xD6zellik Ekle"
+              }), property.map(function (item, index) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                  className: "row my-3",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                    className: "col-md-5",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+                      type: "text",
+                      className: "form-control",
+                      placeholder: "\xD6zellik ismi",
+                      name: "property",
+                      value: item.property,
+                      onChange: function onChange(event) {
+                        return changeTextInput(event, index);
+                      }
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                    className: "col-md-5",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+                      type: "text",
+                      className: "form-control",
+                      placeholder: "\xD6zellik De\u011Feri",
+                      name: "value",
+                      value: item.value,
+                      onChange: function onChange(event) {
+                        return changeTextInput(event, index);
+                      }
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                    className: "col-md-1",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+                      onClick: function onClick() {
+                        return removeProperty(index);
+                      },
+                      className: "btn btn-dark",
+                      children: "x"
+                    })
+                  })]
+                }, index);
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+            onClick: handleSubmit,
+            disabled: isSubmitting || !isValid,
+            className: "w-100 btn btn-info mb-2",
+            type: "submit",
+            children: "\xDCr\xFCn\xFC G\xFCncelle"
+          })]
+        });
+      }
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,mobx_react__WEBPACK_IMPORTED_MODULE_12__.inject)("AuthStore")((0,mobx_react__WEBPACK_IMPORTED_MODULE_12__.observer)(Edit)));
 
 /***/ }),
 

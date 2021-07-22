@@ -84,14 +84,14 @@ const Index = (props) => {
                             },
                         })
                         .then((response) => {
-                            if (response.data.success) {                               
+                            if (response.data.success) {
                                 swal(
                                     "İşlem Başarılı",
                                     response.data.message,
                                     "success"
                                 ).then(() => {
                                     setRefresh(true);
-                                })
+                                });
                             } else {
                                 swal(
                                     "İşlem Başarısız",
@@ -99,7 +99,7 @@ const Index = (props) => {
                                     "error"
                                 ).then(() => {
                                     setRefresh(false);
-                                })
+                                });
                             }
                         })
                         .catch((e) => console.log(e));
