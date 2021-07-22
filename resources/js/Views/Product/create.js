@@ -7,9 +7,11 @@ import * as Yup from "yup";
 import CustomInput from "../../Components/Custom/CustomInput";
 import Select from "react-select";
 import axios from "axios";
+import ImageUploader from "react-images-upload";
 
 const Index = (props) => {
     const [category, setCategories] = useState([]);
+    const [pictures, setPictures] = useState([]);
 
     useEffect(() => {
         axios
@@ -69,19 +71,6 @@ const Index = (props) => {
                     <div className="container mt-5">
                         <h3>Ürün Ekle</h3>
                         <div className="row my-3">
-                            <div className="col-md-12">
-                                <Select
-                                    onChange={(e) =>
-                                        setFieldValue("categoryId", e.id)
-                                    }
-                                    getOptionLabel={(option) => option.name}
-                                    getOptionValue={(option) => option.id}
-                                    placeholder="Kategori Seçiniz"
-                                    options={category}
-                                />
-                            </div>
-                        </div>
-                        <div className="row my-3">
                             <div className="col-md-6">
                                 <CustomInput
                                     type="text"
@@ -103,27 +92,6 @@ const Index = (props) => {
                             <div className="col-md-6">
                                 <CustomInput
                                     type="text"
-                                    title="Model Kodu"
-                                    placeholder="Model Kodu"
-                                    value={values.modelCode}
-                                    handleBlur={handleBlur("modelCode")}
-                                    handleChange={handleChange("modelCode")}
-                                />
-                                {errors.modelCode && touched.modelCode && (
-                                    <div
-                                        id="passwordHelpBlock"
-                                        className="form-text my-2 text-left text-danger"
-                                    >
-                                        {errors.modelCode}
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-
-                        <div className="row my-3">
-                            <div className="col-md-6">
-                                <CustomInput
-                                    type="text"
                                     title="Marka"
                                     placeholder="Marka"
                                     value={values.brand}
@@ -136,6 +104,41 @@ const Index = (props) => {
                                         className="form-text my-2 text-left text-danger"
                                     >
                                         {errors.brand}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+
+                        <div className="row my-3">
+                            <div className="col-md-12">
+                                <Select
+                                    onChange={(e) =>
+                                        setFieldValue("categoryId", e.id)
+                                    }
+                                    getOptionLabel={(option) => option.name}
+                                    getOptionValue={(option) => option.id}
+                                    placeholder="Kategori Seçiniz"
+                                    options={category}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="row my-3">
+                            <div className="col-md-6">
+                                <CustomInput
+                                    type="text"
+                                    title="Model Kodu"
+                                    placeholder="Model Kodu"
+                                    value={values.modelCode}
+                                    handleBlur={handleBlur("modelCode")}
+                                    handleChange={handleChange("modelCode")}
+                                />
+                                {errors.modelCode && touched.modelCode && (
+                                    <div
+                                        id="passwordHelpBlock"
+                                        className="form-text my-2 text-left text-danger"
+                                    >
+                                        {errors.modelCode}
                                     </div>
                                 )}
                             </div>
@@ -210,6 +213,29 @@ const Index = (props) => {
                                         {errors.stock}
                                     </div>
                                 )}
+                            </div>
+                        </div>
+
+                        <div className="row my-3">
+                            <div className="col-md-12">
+                                <label>Resim Ekle</label>
+                                <ImageUploader
+                                    fileTypeError="Desteklenmeyen format"
+                                    fileSizeError="Dosya çok büyük"
+                                    withIcon={true}
+                                    withPreview={true}
+                                    buttonText="Resim Seç"
+                                    onChange={(pictureFiles) => {
+                                        setPictures(pictureFiles);
+                                    }}
+                                    imgExtension={[
+                                        ".jpg",
+                                        ".gif",
+                                        ".png",
+                                        ".gif",
+                                    ]}
+                                    maxFileSize={5242880}
+                                />
                             </div>
                         </div>
 

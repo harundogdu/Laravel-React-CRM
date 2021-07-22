@@ -7870,16 +7870,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var mobx_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/dist/mobxreact.esm.js");
+/* harmony import */ var mobx_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/dist/mobxreact.esm.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Components_Layout_front_layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/Layout/front.layout */ "./resources/js/Components/Layout/front.layout.js");
 /* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
 /* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! yup */ "./node_modules/yup/es/index.js");
 /* harmony import */ var _Components_Custom_CustomInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Components/Custom/CustomInput */ "./resources/js/Components/Custom/CustomInput.js");
-/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
+/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_images_upload__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-images-upload */ "./node_modules/react-images-upload/compiled.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -7904,11 +7905,17 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var Index = function Index(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       category = _useState2[0],
       setCategories = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      pictures = _useState4[0],
+      setPictures = _useState4[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     axios__WEBPACK_IMPORTED_MODULE_5___default().get("/api/product/create", {
@@ -7924,8 +7931,8 @@ var Index = function Index(props) {
 
   var handleSubmit = function handleSubmit() {};
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Layout_front_layout__WEBPACK_IMPORTED_MODULE_1__.default, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(formik__WEBPACK_IMPORTED_MODULE_2__.Formik, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Layout_front_layout__WEBPACK_IMPORTED_MODULE_1__.default, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(formik__WEBPACK_IMPORTED_MODULE_2__.Formik, {
       initialValues: {
         name: "",
         modelCode: "",
@@ -7955,15 +7962,46 @@ var Index = function Index(props) {
             setFieldValue = _ref.setFieldValue,
             isSubmitting = _ref.isSubmitting,
             isValid = _ref.isValid;
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "container mt-5",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h3", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
             children: "\xDCr\xFCn Ekle"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "row my-3",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+              className: "col-md-6",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Custom_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
+                type: "text",
+                title: "\xDCr\xFCn Ad\u0131",
+                placeholder: "\xDCr\xFCn Ad\u0131",
+                value: values.name,
+                handleBlur: handleBlur("name"),
+                handleChange: handleChange("name")
+              }), errors.name && touched.name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                id: "passwordHelpBlock",
+                className: "form-text my-2 text-left text-danger",
+                children: errors.name
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+              className: "col-md-6",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Custom_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
+                type: "text",
+                title: "Marka",
+                placeholder: "Marka",
+                value: values.brand,
+                handleBlur: handleBlur("brand"),
+                handleChange: handleChange("brand")
+              }), errors.brand && touched.brand && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                id: "passwordHelpBlock",
+                className: "form-text my-2 text-left text-danger",
+                children: errors.brand
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            className: "row my-3",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
               className: "col-md-12",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_7__.default, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_8__.default, {
                 onChange: function onChange(e) {
                   return setFieldValue("categoryId", e.id);
                 },
@@ -7977,73 +8015,42 @@ var Index = function Index(props) {
                 options: category
               })
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "row my-3",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "col-md-6",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Custom_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
-                type: "text",
-                title: "\xDCr\xFCn Ad\u0131",
-                placeholder: "\xDCr\xFCn Ad\u0131",
-                value: values.name,
-                handleBlur: handleBlur("name"),
-                handleChange: handleChange("name")
-              }), errors.name && touched.name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                id: "passwordHelpBlock",
-                className: "form-text my-2 text-left text-danger",
-                children: errors.name
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              className: "col-md-6",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Custom_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Custom_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
                 type: "text",
                 title: "Model Kodu",
                 placeholder: "Model Kodu",
                 value: values.modelCode,
                 handleBlur: handleBlur("modelCode"),
                 handleChange: handleChange("modelCode")
-              }), errors.modelCode && touched.modelCode && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              }), errors.modelCode && touched.modelCode && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                 id: "passwordHelpBlock",
                 className: "form-text my-2 text-left text-danger",
                 children: errors.modelCode
               })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-            className: "row my-3",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "col-md-6",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Custom_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
-                type: "text",
-                title: "Marka",
-                placeholder: "Marka",
-                value: values.brand,
-                handleBlur: handleBlur("brand"),
-                handleChange: handleChange("brand")
-              }), errors.brand && touched.brand && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                id: "passwordHelpBlock",
-                className: "form-text my-2 text-left text-danger",
-                children: errors.brand
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              className: "col-md-6",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Custom_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Custom_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
                 type: "text",
                 title: "Barkod",
                 placeholder: "Barkod",
                 value: values.barcode,
                 handleBlur: handleBlur("barcode"),
                 handleChange: handleChange("barcode")
-              }), errors.barcode && touched.barcode && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              }), errors.barcode && touched.barcode && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                 id: "passwordHelpBlock",
                 className: "form-text my-2 text-left text-danger",
                 children: errors.barcode
               })]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "row my-3",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
               className: "col-md-6",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Custom_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Custom_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
                 type: "number",
                 title: "Al\u0131\u015F Fiyat\u0131",
                 placeholder: "Al\u0131\u015F Fiyat\u0131",
@@ -8051,9 +8058,9 @@ var Index = function Index(props) {
                 handleBlur: handleBlur("buyingPrice"),
                 handleChange: handleChange("buyingPrice")
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
               className: "col-md-6",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Custom_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Custom_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
                 type: "number",
                 title: "Sat\u0131\u015F Fiyat\u0131",
                 placeholder: "Sat\u0131\u015F Fiyat\u0131",
@@ -8062,11 +8069,11 @@ var Index = function Index(props) {
                 handleChange: handleChange("sellingPrice")
               })
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "row my-3",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
               className: "col-md-6",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Custom_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Custom_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
                 type: "number",
                 title: "KDV",
                 placeholder: "KDV",
@@ -8074,26 +8081,45 @@ var Index = function Index(props) {
                 handleBlur: handleBlur("tax"),
                 handleChange: handleChange("tax")
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "col-md-6",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Custom_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Custom_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
                 type: "number",
                 title: "Stok",
                 placeholder: "Stok",
                 value: values.stock,
                 handleBlur: handleBlur("stock"),
                 handleChange: handleChange("stock")
-              }), errors.stock && touched.stock && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              }), errors.stock && touched.stock && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                 id: "passwordHelpBlock",
                 className: "form-text my-2 text-left text-danger",
                 children: errors.stock
               })]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
             className: "row my-3",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "col-md-12",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Custom_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+                children: "Resim Ekle"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_images_upload__WEBPACK_IMPORTED_MODULE_6__.default, {
+                fileTypeError: "Desteklenmeyen format",
+                fileSizeError: "Dosya \xE7ok b\xFCy\xFCk",
+                withIcon: true,
+                withPreview: true,
+                buttonText: "Resim Se\xE7",
+                onChange: function onChange(pictureFiles) {
+                  setPictures(pictureFiles);
+                },
+                imgExtension: [".jpg", ".gif", ".png", ".gif"],
+                maxFileSize: 5242880
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            className: "row my-3",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              className: "col-md-12",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Custom_CustomInput__WEBPACK_IMPORTED_MODULE_4__.default, {
                 title: "A\xE7\u0131klama",
                 placeholder: "A\xE7\u0131klama",
                 value: values.description,
@@ -8101,7 +8127,7 @@ var Index = function Index(props) {
                 handleChange: handleChange("description")
               })
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
             onClick: handleSubmit,
             disabled: isSubmitting || !isValid,
             className: "w-100 btn btn-lg btn-primary mb-2",
@@ -8114,7 +8140,7 @@ var Index = function Index(props) {
   });
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,mobx_react__WEBPACK_IMPORTED_MODULE_8__.inject)("AuthStore")((0,mobx_react__WEBPACK_IMPORTED_MODULE_8__.observer)(Index)));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,mobx_react__WEBPACK_IMPORTED_MODULE_9__.inject)("AuthStore")((0,mobx_react__WEBPACK_IMPORTED_MODULE_9__.observer)(Index)));
 
 /***/ }),
 
@@ -15158,6 +15184,106 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./node_modules/react-images-upload/index.css":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./node_modules/react-images-upload/index.css ***!
+  \**************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".fileUploader {\n\twidth: 100%;\n}\n\n.fileContainer {\n\tbackground: #fff;\n\tbox-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.05);\n\tposition: relative;\n\tborder-radius: 10px;\n\tpadding: 20px 0;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tflex-direction: column;\n\tmargin: 10px auto;\n\ttransition: all 0.3s ease-in;\n}\n\n.fileContainer input {\n\topacity: 0;\n\tposition: absolute;\n\tz-index: -1;\n}\n\n.fileContainer p {\n\tfont-size: 12px;\n\tmargin: 8px 0 4px;\n}\n\n.fileContainer .errorsContainer {\n\tmax-width: 300px;\n\tfont-size: 12px;\n\tcolor: red;\n\ttext-align: left;\n}\n\n.fileContainer .chooseFileButton {\n\tpadding: 6px 23px;\n\tbackground: #3f4257;\n\tborder-radius: 30px;\n\tcolor: white;\n\tfont-weight: 300;\n\tfont-size: 14px;\n\tmargin: 10px 0;\n\ttransition: all 0.2s ease-in;\n\tcursor: pointer;\n\toutline: none;\n\tborder: none;\n}\n\n.fileContainer .chooseFileButton:hover {\n\tbackground: #545972;\n}\n\n.fileContainer .uploadFilesButton {\n\tpadding: 5px 43px;\n\tbackground: transparent;\n\tborder-radius: 30px;\n\tcolor: #3f4257;\n\tfont-weight: 300;\n\tfont-size: 14px;\n\tmargin: 10px 0;\n\ttransition: all 0.2s ease-in;\n\tcursor: pointer;\n\toutline: none;\n\tborder: 1px solid #3f4257;\n}\n\n.fileContainer .uploadFilesButton:hover {\n\tbackground: #3f4257;\n\tcolor: #fff;\n}\n\n.fileContainer .uploadIcon {\n\twidth: 50px;\n\theight: 50px;\n}\n\n.fileContainer .uploadPicturesWrapper {\n\tdisplay: flex;\n\tflex-wrap: wrap;\n\tjustify-content: center;\n\twidth: 100%;\n}\n\n.fileContainer .uploadPictureContainer {\n\twidth: 25%;\n\tmargin: 5%;\n\tpadding: 10px;\n\tbackground: #edf2f6;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\theight: inherit;\n\tbox-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);\n\tborder: 1px solid #d0dbe4;\n\tposition: relative;\n}\n\n.fileContainer .uploadPictureContainer img.uploadPicture {\n\twidth: 100%;\n}\n\n.fileContainer .deleteImage {\n\tposition: absolute;\n\ttop: -9px;\n\tright: -9px;\n\tcolor: #fff;\n\tbackground: #ff4081;\n\tborder-radius: 50%;\n\ttext-align: center;\n\tcursor: pointer;\n\tfont-size: 26px;\n\tfont-weight: bold;\n\tline-height: 30px;\n\twidth: 30px;\n\theight: 30px;\n}\n\n.flipMove {\n\tdisplay: flex;\n    align-items: center;\n    justify-content: center;\n    flex-wrap: wrap;\n    width: 100%;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+module.exports = function (cssWithMappingToString) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item);
+
+      if (item[2]) {
+        return "@media ".concat(item[2], " {").concat(content, "}");
+      }
+
+      return content;
+    }).join("");
+  }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
+
+
+  list.i = function (modules, mediaQuery, dedupe) {
+    if (typeof modules === "string") {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, ""]];
+    }
+
+    var alreadyImportedModules = {};
+
+    if (dedupe) {
+      for (var i = 0; i < this.length; i++) {
+        // eslint-disable-next-line prefer-destructuring
+        var id = this[i][0];
+
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = [].concat(modules[_i]);
+
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (mediaQuery) {
+        if (!item[2]) {
+          item[2] = mediaQuery;
+        } else {
+          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
+        }
+      }
+
+      list.push(item);
+    }
+  };
+
+  return list;
+};
+
+/***/ }),
+
 /***/ "./node_modules/deepmerge/dist/es.js":
 /*!*******************************************!*\
   !*** ./node_modules/deepmerge/dist/es.js ***!
@@ -15814,6 +15940,21 @@ function triggerEvent(node, eventName, bubbles, cancelable) {
     node.dispatchEvent(event);
   }
 }
+
+/***/ }),
+
+/***/ "./node_modules/react-images-upload/UploadIcon.svg":
+/*!*********************************************************!*\
+  !*** ./node_modules/react-images-upload/UploadIcon.svg ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/vendor/react-images-upload/UploadIcon.svg?469126df4127e870c21611e576b85d00");
 
 /***/ }),
 
@@ -84229,6 +84370,3837 @@ module.exports = function exportedEqual(a, b) {
 
 /***/ }),
 
+/***/ "./node_modules/react-flip-move/dist/react-flip-move.es.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/react-flip-move/dist/react-flip-move.es.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+
+
+
+function warnOnce(msg) {
+  var hasWarned = false;
+  return function () {
+    if (!hasWarned) {
+      console.warn(msg);
+      hasWarned = true;
+    }
+  };
+}
+
+
+var statelessFunctionalComponentSupplied = warnOnce('\n>> Error, via react-flip-move <<\n\nYou provided a stateless functional component as a child to <FlipMove>. Unfortunately, SFCs aren\'t supported, because Flip Move needs access to the backing instances via refs, and SFCs don\'t have a public instance that holds that info.\n\nPlease wrap your components in a native element (eg. <div>), or a non-functional component.\n');
+
+var primitiveNodeSupplied = warnOnce('\n>> Error, via react-flip-move <<\n\nYou provided a primitive (text or number) node as a child to <FlipMove>. Flip Move needs containers with unique keys to move children around.\n\nPlease wrap your value in a native element (eg. <span>), or a component.\n');
+
+var invalidTypeForTimingProp = function invalidTypeForTimingProp(args
+// prettier-ignore
+) {
+  return console.error('\n>> Error, via react-flip-move <<\n\nThe prop you provided for \'' + args.prop + '\' is invalid. It needs to be a positive integer, or a string that can be resolved to a number. The value you provided is \'' + args.value + '\'.\n\nAs a result,  the default value for this parameter will be used, which is \'' + args.defaultValue + '\'.\n');
+};
+
+var invalidEnterLeavePreset = function invalidEnterLeavePreset(args
+// prettier-ignore
+) {
+  return console.error('\n>> Error, via react-flip-move <<\n\nThe enter/leave preset you provided is invalid. We don\'t currently have a \'' + args.value + ' preset.\'\n\nAcceptable values are ' + args.acceptableValues + '. The default value of \'' + args.defaultValue + '\' will be used.\n');
+};
+
+var parentNodePositionStatic = warnOnce('\n>> Warning, via react-flip-move <<\n\nWhen using "wrapperless" mode (by supplying \'typeName\' of \'null\'), strange things happen when the direct parent has the default "static" position.\n\nFlipMove has added \'position: relative\' to this node, to ensure Flip Move animates correctly.\n\nTo avoid seeing this warning, simply apply a non-static position to that parent node.\n');
+
+var childIsDisabled = warnOnce('\n>> Warning, via react-flip-move <<\n\nOne or more of Flip Move\'s child elements have the html attribute \'disabled\' set to true.\n\nPlease note that this will cause animations to break in Internet Explorer 11 and below. Either remove the disabled attribute or set \'animation\' to false.\n');
+
+var enterPresets = {
+  elevator: {
+    from: { transform: 'scale(0)', opacity: '0' },
+    to: { transform: '', opacity: '' }
+  },
+  fade: {
+    from: { opacity: '0' },
+    to: { opacity: '' }
+  },
+  accordionVertical: {
+    from: { transform: 'scaleY(0)', transformOrigin: 'center top' },
+    to: { transform: '', transformOrigin: 'center top' }
+  },
+  accordionHorizontal: {
+    from: { transform: 'scaleX(0)', transformOrigin: 'left center' },
+    to: { transform: '', transformOrigin: 'left center' }
+  },
+  none: null
+};
+/**
+ * React Flip Move | enterLeavePresets
+ * (c) 2016-present Joshua Comeau
+ *
+ * This contains the master list of presets available for enter/leave animations,
+ * along with the mapping between preset and styles.
+ */
+
+
+var leavePresets = {
+  elevator: {
+    from: { transform: 'scale(1)', opacity: '1' },
+    to: { transform: 'scale(0)', opacity: '0' }
+  },
+  fade: {
+    from: { opacity: '1' },
+    to: { opacity: '0' }
+  },
+  accordionVertical: {
+    from: { transform: 'scaleY(1)', transformOrigin: 'center top' },
+    to: { transform: 'scaleY(0)', transformOrigin: 'center top' }
+  },
+  accordionHorizontal: {
+    from: { transform: 'scaleX(1)', transformOrigin: 'left center' },
+    to: { transform: 'scaleX(0)', transformOrigin: 'left center' }
+  },
+  none: null
+};
+
+// For now, appearPresets will be identical to enterPresets.
+// Assigning a custom export in case we ever want to add appear-specific ones.
+var appearPresets = enterPresets;
+
+var defaultPreset = 'elevator';
+var disablePreset = 'none';
+
+var find = function find(predicate, arr) {
+  for (var i = 0; i < arr.length; i++) {
+    if (predicate(arr[i], i, arr)) {
+      return arr[i];
+    }
+  }
+
+  return undefined;
+};
+
+
+var every = function every(predicate, arr) {
+  for (var i = 0; i < arr.length; i++) {
+    if (!predicate(arr[i], i, arr)) {
+      return false;
+    }
+  }
+  return true;
+};
+
+// eslint-disable-next-line import/no-mutable-exports
+var _isArray = function isArray(arr) {
+  _isArray = Array.isArray || function (arg) {
+    return Object.prototype.toString.call(arg) === '[object Array]';
+  };
+  return _isArray(arr);
+};
+
+var isElementAnSFC = function isElementAnSFC(element) {
+  var isNativeDOMElement = typeof element.type === 'string';
+
+  if (isNativeDOMElement) {
+    return false;
+  }
+
+  return typeof element.type === 'function' && !element.type.prototype.isReactComponent;
+};
+
+function omit(obj) {
+  var attrs = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+
+  var result = {};
+  Object.keys(obj).forEach(function (key) {
+    if (attrs.indexOf(key) === -1) {
+      result[key] = obj[key];
+    }
+  });
+  return result;
+}
+
+function arraysEqual(a, b) {
+  var sameObject = a === b;
+  if (sameObject) {
+    return true;
+  }
+
+  var notBothArrays = !_isArray(a) || !_isArray(b);
+  var differentLengths = a.length !== b.length;
+
+  if (notBothArrays || differentLengths) {
+    return false;
+  }
+
+  return every(function (element, index) {
+    return element === b[index];
+  }, a);
+}
+
+function memoizeString(fn) {
+  var cache = {};
+
+  return function (str) {
+    if (!cache[str]) {
+      cache[str] = fn(str);
+    }
+    return cache[str];
+  };
+}
+
+var hyphenate = memoizeString(function (str) {
+  return str.replace(/([A-Z])/g, '-$1').toLowerCase();
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+  return typeof obj;
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+};
+
+
+
+
+
+
+
+
+
+
+
+var classCallCheck = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+
+
+
+
+
+
+
+
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
+
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+
+  return target;
+};
+
+
+
+var inherits = function (subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+};
+
+
+
+
+
+
+
+
+
+
+
+var possibleConstructorReturn = function (self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return call && (typeof call === "object" || typeof call === "function") ? call : self;
+};
+
+/**
+ * React Flip Move | propConverter
+ * (c) 2016-present Joshua Comeau
+ *
+ * Abstracted away a bunch of the messy business with props.
+ *   - props flow types and defaultProps
+ *   - Type conversion (We accept 'string' and 'number' values for duration,
+ *     delay, and other fields, but we actually need them to be ints.)
+ *   - Children conversion (we need the children to be an array. May not always
+ *     be, if a single child is passed in.)
+ *   - Resolving animation presets into their base CSS styles
+ */
+/* eslint-disable block-scoped-var */
+
+// eslint-disable-next-line no-duplicate-imports
+
+
+function propConverter(ComposedComponent) {
+  var _class, _temp;
+
+  return _temp = _class = function (_Component) {
+    inherits(FlipMovePropConverter, _Component);
+
+    function FlipMovePropConverter() {
+      classCallCheck(this, FlipMovePropConverter);
+      return possibleConstructorReturn(this, _Component.apply(this, arguments));
+    }
+
+    // eslint-disable-next-line class-methods-use-this
+    FlipMovePropConverter.prototype.checkChildren = function checkChildren(children) {
+      // Skip all console warnings in production.
+      // Bail early, to avoid unnecessary work.
+      if (false) {}
+
+      // same as React.Node, but without fragments, see https://github.com/facebook/flow/issues/4781
+
+
+      // FlipMove does not support stateless functional components.
+      // Check to see if any supplied components won't work.
+      // If the child doesn't have a key, it means we aren't animating it.
+      // It's allowed to be an SFC, since we ignore it.
+      react__WEBPACK_IMPORTED_MODULE_0__.Children.forEach(children, function (child) {
+        // null, undefined, and booleans will be filtered out by Children.toArray
+        if (child == null || typeof child === 'boolean') {
+          return;
+        }
+
+        if ((typeof child === 'undefined' ? 'undefined' : _typeof(child)) !== 'object') {
+          primitiveNodeSupplied();
+          return;
+        }
+
+        if (isElementAnSFC(child) && child.key != null) {
+          statelessFunctionalComponentSupplied();
+        }
+      });
+    };
+
+    FlipMovePropConverter.prototype.convertProps = function convertProps(props) {
+      var workingProps = {
+        // explicitly bypass the props that don't need conversion
+        children: props.children,
+        easing: props.easing,
+        onStart: props.onStart,
+        onFinish: props.onFinish,
+        onStartAll: props.onStartAll,
+        onFinishAll: props.onFinishAll,
+        typeName: props.typeName,
+        disableAllAnimations: props.disableAllAnimations,
+        getPosition: props.getPosition,
+        maintainContainerHeight: props.maintainContainerHeight,
+        verticalAlignment: props.verticalAlignment,
+
+        // Do string-to-int conversion for all timing-related props
+        duration: this.convertTimingProp('duration'),
+        delay: this.convertTimingProp('delay'),
+        staggerDurationBy: this.convertTimingProp('staggerDurationBy'),
+        staggerDelayBy: this.convertTimingProp('staggerDelayBy'),
+
+        // Our enter/leave animations can be specified as boolean (default or
+        // disabled), string (preset name), or object (actual animation values).
+        // Let's standardize this so that they're always objects
+        appearAnimation: this.convertAnimationProp(props.appearAnimation, appearPresets),
+        enterAnimation: this.convertAnimationProp(props.enterAnimation, enterPresets),
+        leaveAnimation: this.convertAnimationProp(props.leaveAnimation, leavePresets),
+
+        delegated: {}
+      };
+
+      this.checkChildren(workingProps.children);
+
+      // Gather any additional props;
+      // they will be delegated to the ReactElement created.
+      var primaryPropKeys = Object.keys(workingProps);
+      var delegatedProps = omit(this.props, primaryPropKeys);
+
+      // The FlipMove container element needs to have a non-static position.
+      // We use `relative` by default, but it can be overridden by the user.
+      // Now that we're delegating props, we need to merge this in.
+      delegatedProps.style = _extends({
+        position: 'relative'
+      }, delegatedProps.style);
+
+      workingProps.delegated = delegatedProps;
+
+      return workingProps;
+    };
+
+    FlipMovePropConverter.prototype.convertTimingProp = function convertTimingProp(prop) {
+      var rawValue = this.props[prop];
+
+      var value = typeof rawValue === 'number' ? rawValue : parseInt(rawValue, 10);
+
+      if (isNaN(value)) {
+        var defaultValue = FlipMovePropConverter.defaultProps[prop];
+
+        if (true) {
+          invalidTypeForTimingProp({
+            prop: prop,
+            value: rawValue,
+            defaultValue: defaultValue
+          });
+        }
+
+        return defaultValue;
+      }
+
+      return value;
+    };
+
+    // eslint-disable-next-line class-methods-use-this
+
+
+    FlipMovePropConverter.prototype.convertAnimationProp = function convertAnimationProp(animation, presets) {
+      switch (typeof animation === 'undefined' ? 'undefined' : _typeof(animation)) {
+        case 'boolean':
+          {
+            // If it's true, we want to use the default preset.
+            // If it's false, we want to use the 'none' preset.
+            return presets[animation ? defaultPreset : disablePreset];
+          }
+
+        case 'string':
+          {
+            var presetKeys = Object.keys(presets);
+
+            if (presetKeys.indexOf(animation) === -1) {
+              if (true) {
+                invalidEnterLeavePreset({
+                  value: animation,
+                  acceptableValues: presetKeys.join(', '),
+                  defaultValue: defaultPreset
+                });
+              }
+
+              return presets[defaultPreset];
+            }
+
+            return presets[animation];
+          }
+
+        default:
+          {
+            return animation;
+          }
+      }
+    };
+
+    FlipMovePropConverter.prototype.render = function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0__.createElement(ComposedComponent, this.convertProps(this.props));
+    };
+
+    return FlipMovePropConverter;
+  }(react__WEBPACK_IMPORTED_MODULE_0__.Component), _class.defaultProps = {
+    easing: 'ease-in-out',
+    duration: 350,
+    delay: 0,
+    staggerDurationBy: 0,
+    staggerDelayBy: 0,
+    typeName: 'div',
+    enterAnimation: defaultPreset,
+    leaveAnimation: defaultPreset,
+    disableAllAnimations: false,
+    getPosition: function getPosition(node) {
+      return node.getBoundingClientRect();
+    },
+    maintainContainerHeight: false,
+    verticalAlignment: 'top'
+  }, _temp;
+}
+
+/**
+ * React Flip Move
+ * (c) 2016-present Joshua Comeau
+ *
+ * These methods read from and write to the DOM.
+ * They almost always have side effects, and will hopefully become the
+ * only spot in the codebase with impure functions.
+ */
+function applyStylesToDOMNode(_ref) {
+  var domNode = _ref.domNode,
+      styles = _ref.styles;
+
+  // Can't just do an object merge because domNode.styles is no regular object.
+  // Need to do it this way for the engine to fire its `set` listeners.
+  Object.keys(styles).forEach(function (key) {
+    domNode.style.setProperty(hyphenate(key), styles[key]);
+  });
+}
+
+// Modified from Modernizr
+function whichTransitionEvent() {
+  var transitions = {
+    transition: 'transitionend',
+    '-o-transition': 'oTransitionEnd',
+    '-moz-transition': 'transitionend',
+    '-webkit-transition': 'webkitTransitionEnd'
+  };
+
+  // If we're running in a browserless environment (eg. SSR), it doesn't apply.
+  // Return a placeholder string, for consistent type return.
+  if (typeof document === 'undefined') return '';
+
+  var el = document.createElement('fakeelement');
+
+  var match = find(function (t) {
+    return el.style.getPropertyValue(t) !== undefined;
+  }, Object.keys(transitions));
+
+  // If no `transition` is found, we must be running in a browser so ancient,
+  // React itself won't run. Return an empty string, for consistent type return
+  return match ? transitions[match] : '';
+}
+
+var getRelativeBoundingBox = function getRelativeBoundingBox(_ref2) {
+  var childDomNode = _ref2.childDomNode,
+      parentDomNode = _ref2.parentDomNode,
+      getPosition = _ref2.getPosition;
+
+  var parentBox = getPosition(parentDomNode);
+
+  var _getPosition = getPosition(childDomNode),
+      top = _getPosition.top,
+      left = _getPosition.left,
+      right = _getPosition.right,
+      bottom = _getPosition.bottom,
+      width = _getPosition.width,
+      height = _getPosition.height;
+
+  return {
+    top: top - parentBox.top,
+    left: left - parentBox.left,
+    right: parentBox.right - right,
+    bottom: parentBox.bottom - bottom,
+    width: width,
+    height: height
+  };
+};
+
+/** getPositionDelta
+ * This method returns the delta between two bounding boxes, to figure out
+ * how many pixels on each axis the element has moved.
+ *
+ */
+var getPositionDelta = function getPositionDelta(_ref3) {
+  var childDomNode = _ref3.childDomNode,
+      childBoundingBox = _ref3.childBoundingBox,
+      parentBoundingBox = _ref3.parentBoundingBox,
+      getPosition = _ref3.getPosition;
+
+  // TEMP: A mystery bug is sometimes causing unnecessary boundingBoxes to
+  var defaultBox = {
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: 0,
+    width: 0
+  };
+
+  // Our old box is its last calculated position, derived on mount or at the
+  // start of the previous animation.
+  var oldRelativeBox = childBoundingBox || defaultBox;
+  var parentBox = parentBoundingBox || defaultBox;
+
+  // Our new box is the new final resting place: Where we expect it to wind up
+  // after the animation. First we get the box in absolute terms (AKA relative
+  // to the viewport), and then we calculate its relative box (relative to the
+  // parent container)
+  var newAbsoluteBox = getPosition(childDomNode);
+  var newRelativeBox = {
+    top: newAbsoluteBox.top - parentBox.top,
+    left: newAbsoluteBox.left - parentBox.left
+  };
+
+  return [oldRelativeBox.left - newRelativeBox.left, oldRelativeBox.top - newRelativeBox.top];
+};
+
+/** removeNodeFromDOMFlow
+ * This method does something very sneaky: it removes a DOM node from the
+ * document flow, but without actually changing its on-screen position.
+ *
+ * It works by calculating where the node is, and then applying styles
+ * so that it winds up being positioned absolutely, but in exactly the
+ * same place.
+ *
+ * This is a vital part of the FLIP technique.
+ */
+var removeNodeFromDOMFlow = function removeNodeFromDOMFlow(childData, verticalAlignment) {
+  var domNode = childData.domNode,
+      boundingBox = childData.boundingBox;
+
+
+  if (!domNode || !boundingBox) {
+    return;
+  }
+
+  // For this to work, we have to offset any given `margin`.
+  var computed = window.getComputedStyle(domNode);
+
+  // We need to clean up margins, by converting and removing suffix:
+  // eg. '21px' -> 21
+  var marginAttrs = ['margin-top', 'margin-left', 'margin-right'];
+  var margins = marginAttrs.reduce(function (acc, margin) {
+    var _babelHelpers$extends;
+
+    var propertyVal = computed.getPropertyValue(margin);
+
+    return _extends({}, acc, (_babelHelpers$extends = {}, _babelHelpers$extends[margin] = Number(propertyVal.replace('px', '')), _babelHelpers$extends));
+  }, {});
+
+  // If we're bottom-aligned, we need to add the height of the child to its
+  // top offset. This is because, when the container is bottom-aligned, its
+  // height shrinks from the top, not the bottom. We're removing this node
+  // from the flow, so the top is going to drop by its height.
+  var topOffset = verticalAlignment === 'bottom' ? boundingBox.top - boundingBox.height : boundingBox.top;
+
+  var styles = {
+    position: 'absolute',
+    top: topOffset - margins['margin-top'] + 'px',
+    left: boundingBox.left - margins['margin-left'] + 'px',
+    right: boundingBox.right - margins['margin-right'] + 'px'
+  };
+
+  applyStylesToDOMNode({ domNode: domNode, styles: styles });
+};
+
+/** updateHeightPlaceholder
+ * An optional property to FlipMove is a `maintainContainerHeight` boolean.
+ * This property creates a node that fills space, so that the parent
+ * container doesn't collapse when its children are removed from the
+ * document flow.
+ */
+var updateHeightPlaceholder = function updateHeightPlaceholder(_ref4) {
+  var domNode = _ref4.domNode,
+      parentData = _ref4.parentData,
+      getPosition = _ref4.getPosition;
+
+  var parentDomNode = parentData.domNode;
+  var parentBoundingBox = parentData.boundingBox;
+
+  if (!parentDomNode || !parentBoundingBox) {
+    return;
+  }
+
+  // We need to find the height of the container *without* the placeholder.
+  // Since it's possible that the placeholder might already be present,
+  // we first set its height to 0.
+  // This allows the container to collapse down to the size of just its
+  // content (plus container padding or borders if any).
+  applyStylesToDOMNode({ domNode: domNode, styles: { height: '0' } });
+
+  // Find the distance by which the container would be collapsed by elements
+  // leaving. We compare the freshly-available parent height with the original,
+  // cached container height.
+  var originalParentHeight = parentBoundingBox.height;
+  var collapsedParentHeight = getPosition(parentDomNode).height;
+  var reductionInHeight = originalParentHeight - collapsedParentHeight;
+
+  // If the container has become shorter, update the padding element's
+  // height to take up the difference. Otherwise set its height to zero,
+  // so that it has no effect.
+  var styles = {
+    height: reductionInHeight > 0 ? reductionInHeight + 'px' : '0'
+  };
+
+  applyStylesToDOMNode({ domNode: domNode, styles: styles });
+};
+
+var getNativeNode = function getNativeNode(element) {
+  // When running in a windowless environment, abort!
+  if (typeof HTMLElement === 'undefined') {
+    return null;
+  }
+
+  // `element` may already be a native node.
+  if (element instanceof HTMLElement) {
+    return element;
+  }
+
+  // While ReactDOM's `findDOMNode` is discouraged, it's the only
+  // publicly-exposed way to find the underlying DOM node for
+  // composite components.
+  var foundNode = (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.findDOMNode)(element);
+
+  if (foundNode && foundNode.nodeType === Node.TEXT_NODE) {
+    // Text nodes are not supported
+    return null;
+  }
+  // eslint-disable-next-line flowtype/no-weak-types
+  return foundNode;
+};
+
+var createTransitionString = function createTransitionString(index, props) {
+  var delay = props.delay,
+      duration = props.duration;
+  var staggerDurationBy = props.staggerDurationBy,
+      staggerDelayBy = props.staggerDelayBy,
+      easing = props.easing;
+
+
+  delay += index * staggerDelayBy;
+  duration += index * staggerDurationBy;
+
+  var cssProperties = ['transform', 'opacity'];
+
+  return cssProperties.map(function (prop) {
+    return prop + ' ' + duration + 'ms ' + easing + ' ' + delay + 'ms';
+  }).join(', ');
+};
+
+/**
+ * React Flip Move
+ * (c) 2016-present Joshua Comeau
+ *
+ * For information on how this code is laid out, check out CODE_TOUR.md
+ */
+
+/* eslint-disable react/prop-types */
+
+// eslint-disable-next-line no-duplicate-imports
+
+
+var transitionEnd = whichTransitionEvent();
+var noBrowserSupport = !transitionEnd;
+
+function getKey(childData) {
+  return childData.key || '';
+}
+
+function getElementChildren(children) {
+  // Fix incomplete typing of Children.toArray
+  // eslint-disable-next-line flowtype/no-weak-types
+  return react__WEBPACK_IMPORTED_MODULE_0__.Children.toArray(children);
+}
+
+var FlipMove$1 = function (_Component) {
+  inherits(FlipMove, _Component);
+
+  function FlipMove() {
+    var _temp, _this, _ret;
+
+    classCallCheck(this, FlipMove);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
+      children: getElementChildren(
+      // `this.props` ought to always be defined at this point, but a report
+      // was made about it not being defined in IE10.
+      // TODO: Test in IE10, to see if there's an underlying cause that can
+      // be addressed.
+      _this.props ? _this.props.children : []).map(function (element) {
+        return _extends({}, element, {
+          element: element,
+          appearing: true
+        });
+      })
+    }, _this.childrenData = {}, _this.parentData = {
+      domNode: null,
+      boundingBox: null
+    }, _this.heightPlaceholderData = {
+      domNode: null
+    }, _this.remainingAnimations = 0, _this.childrenToAnimate = [], _this.findDOMContainer = function () {
+      // eslint-disable-next-line react/no-find-dom-node
+      var domNode = react_dom__WEBPACK_IMPORTED_MODULE_1__.findDOMNode(_this);
+      var parentNode = domNode && domNode.parentNode;
+
+      // This ought to be impossible, but handling it for Flow's sake.
+      if (!parentNode || !(parentNode instanceof HTMLElement)) {
+        return;
+      }
+
+      // If the parent node has static positioning, leave animations might look
+      // really funky. Let's automatically apply `position: relative` in this
+      // case, to prevent any quirkiness.
+      if (window.getComputedStyle(parentNode).position === 'static') {
+        parentNode.style.position = 'relative';
+        parentNodePositionStatic();
+      }
+
+      _this.parentData.domNode = parentNode;
+    }, _this.runAnimation = function () {
+      var dynamicChildren = _this.state.children.filter(_this.doesChildNeedToBeAnimated);
+
+      // Splitting DOM reads and writes to be peformed in batches
+      var childrenInitialStyles = dynamicChildren.map(function (child) {
+        return _this.computeInitialStyles(child);
+      });
+      dynamicChildren.forEach(function (child, index) {
+        _this.remainingAnimations += 1;
+        _this.childrenToAnimate.push(getKey(child));
+        _this.animateChild(child, index, childrenInitialStyles[index]);
+      });
+
+      if (typeof _this.props.onStartAll === 'function') {
+        _this.callChildrenHook(_this.props.onStartAll);
+      }
+    }, _this.doesChildNeedToBeAnimated = function (child) {
+      // If the child doesn't have a key, it's an immovable child (one that we
+      // do not want to do FLIP stuff to.)
+      if (!getKey(child)) {
+        return false;
+      }
+
+      var childData = _this.getChildData(getKey(child));
+      var childDomNode = childData.domNode;
+      var childBoundingBox = childData.boundingBox;
+      var parentBoundingBox = _this.parentData.boundingBox;
+
+      if (!childDomNode) {
+        return false;
+      }
+
+      var _this$props = _this.props,
+          appearAnimation = _this$props.appearAnimation,
+          enterAnimation = _this$props.enterAnimation,
+          leaveAnimation = _this$props.leaveAnimation,
+          getPosition = _this$props.getPosition;
+
+
+      var isAppearingWithAnimation = child.appearing && appearAnimation;
+      var isEnteringWithAnimation = child.entering && enterAnimation;
+      var isLeavingWithAnimation = child.leaving && leaveAnimation;
+
+      if (isAppearingWithAnimation || isEnteringWithAnimation || isLeavingWithAnimation) {
+        return true;
+      }
+
+      // If it isn't entering/leaving, we want to animate it if it's
+      // on-screen position has changed.
+
+      var _getPositionDelta = getPositionDelta({
+        childDomNode: childDomNode,
+        childBoundingBox: childBoundingBox,
+        parentBoundingBox: parentBoundingBox,
+        getPosition: getPosition
+      }),
+          dX = _getPositionDelta[0],
+          dY = _getPositionDelta[1];
+
+      return dX !== 0 || dY !== 0;
+    }, _temp), possibleConstructorReturn(_this, _ret);
+  }
+  // Copy props.children into state.
+  // To understand why this is important (and not an anti-pattern), consider
+  // how "leave" animations work. An item has "left" when the component
+  // receives a new set of props that do NOT contain the item.
+  // If we just render the props as-is, the item would instantly disappear.
+  // We want to keep the item rendered for a little while, until its animation
+  // can complete. Because we cannot mutate props, we make `state` the source
+  // of truth.
+
+
+  // FlipMove needs to know quite a bit about its children in order to do
+  // its job. We store these as a property on the instance. We're not using
+  // state, because we don't want changes to trigger re-renders, we just
+  // need a place to keep the data for reference, when changes happen.
+  // This field should not be accessed directly. Instead, use getChildData,
+  // putChildData, etc...
+
+
+  // Similarly, track the dom node and box of our parent element.
+
+
+  // If `maintainContainerHeight` prop is set to true, we'll create a
+  // placeholder element which occupies space so that the parent height
+  // doesn't change when items are removed from the document flow (which
+  // happens during leave animations)
+
+
+  // Keep track of remaining animations so we know when to fire the
+  // all-finished callback, and clean up after ourselves.
+  // NOTE: we can't simply use childrenToAnimate.length to track remaining
+  // animations, because we need to maintain the list of animating children,
+  // to pass to the `onFinishAll` handler.
+
+
+  FlipMove.prototype.componentDidMount = function componentDidMount() {
+    // Because React 16 no longer requires wrapping elements, Flip Move can opt
+    // to not wrap the children in an element. In that case, find the parent
+    // element using `findDOMNode`.
+    if (this.props.typeName === null) {
+      this.findDOMContainer();
+    }
+
+    // Run our `appearAnimation` if it was requested, right after the
+    // component mounts.
+    var shouldTriggerFLIP = this.props.appearAnimation && !this.isAnimationDisabled(this.props);
+
+    if (shouldTriggerFLIP) {
+      this.prepForAnimation();
+      this.runAnimation();
+    }
+  };
+
+  FlipMove.prototype.componentDidUpdate = function componentDidUpdate(previousProps) {
+    if (this.props.typeName === null) {
+      this.findDOMContainer();
+    }
+    // If the children have been re-arranged, moved, or added/removed,
+    // trigger the main FLIP animation.
+    //
+    // IMPORTANT: We need to make sure that the children have actually changed.
+    // At the end of the transition, we clean up nodes that need to be removed.
+    // We DON'T want this cleanup to trigger another update.
+
+    var oldChildrenKeys = getElementChildren(this.props.children).map(function (d) {
+      return d.key;
+    });
+    var nextChildrenKeys = getElementChildren(previousProps.children).map(function (d) {
+      return d.key;
+    });
+
+    var shouldTriggerFLIP = !arraysEqual(oldChildrenKeys, nextChildrenKeys) && !this.isAnimationDisabled(this.props);
+
+    if (shouldTriggerFLIP) {
+      this.prepForAnimation();
+      this.runAnimation();
+    }
+  };
+
+  FlipMove.prototype.calculateNextSetOfChildren = function calculateNextSetOfChildren(nextChildren) {
+    var _this2 = this;
+
+    // We want to:
+    //   - Mark all new children as `entering`
+    //   - Pull in previous children that aren't in nextChildren, and mark them
+    //     as `leaving`
+    //   - Preserve the nextChildren list order, with leaving children in their
+    //     appropriate places.
+    //
+
+    var updatedChildren = nextChildren.map(function (nextChild) {
+      var child = _this2.findChildByKey(nextChild.key);
+
+      // If the current child did exist, but it was in the midst of leaving,
+      // we want to treat it as though it's entering
+      var isEntering = !child || child.leaving;
+
+      return _extends({}, nextChild, { element: nextChild, entering: isEntering });
+    });
+
+    // This is tricky. We want to keep the nextChildren's ordering, but with
+    // any just-removed items maintaining their original position.
+    // eg.
+    //   this.state.children  = [ 1, 2, 3, 4 ]
+    //   nextChildren         = [ 3, 1 ]
+    //
+    // In this example, we've removed the '2' & '4'
+    // We want to end up with:  [ 2, 3, 1, 4 ]
+    //
+    // To accomplish that, we'll iterate through this.state.children. whenever
+    // we find a match, we'll append our `leaving` flag to it, and insert it
+    // into the nextChildren in its ORIGINAL position. Note that, as we keep
+    // inserting old items into the new list, the "original" position will
+    // keep incrementing.
+    var numOfChildrenLeaving = 0;
+    this.state.children.forEach(function (child, index) {
+      var isLeaving = !find(function (_ref) {
+        var key = _ref.key;
+        return key === getKey(child);
+      }, nextChildren);
+
+      // If the child isn't leaving (or, if there is no leave animation),
+      // we don't need to add it into the state children.
+      if (!isLeaving || !_this2.props.leaveAnimation) return;
+
+      var nextChild = _extends({}, child, { leaving: true });
+      var nextChildIndex = index + numOfChildrenLeaving;
+
+      updatedChildren.splice(nextChildIndex, 0, nextChild);
+      numOfChildrenLeaving += 1;
+    });
+
+    return updatedChildren;
+  };
+
+  FlipMove.prototype.prepForAnimation = function prepForAnimation() {
+    var _this3 = this;
+
+    // Our animation prep consists of:
+    // - remove children that are leaving from the DOM flow, so that the new
+    //   layout can be accurately calculated,
+    // - update the placeholder container height, if needed, to ensure that
+    //   the parent's height doesn't collapse.
+
+    var _props = this.props,
+        leaveAnimation = _props.leaveAnimation,
+        maintainContainerHeight = _props.maintainContainerHeight,
+        getPosition = _props.getPosition;
+
+    // we need to make all leaving nodes "invisible" to the layout calculations
+    // that will take place in the next step (this.runAnimation).
+
+    if (leaveAnimation) {
+      var leavingChildren = this.state.children.filter(function (child) {
+        return child.leaving;
+      });
+
+      leavingChildren.forEach(function (leavingChild) {
+        var childData = _this3.getChildData(getKey(leavingChild));
+
+        // Warn if child is disabled
+        if (!_this3.isAnimationDisabled(_this3.props) && childData.domNode && childData.domNode.disabled) {
+          childIsDisabled();
+        }
+
+        // We need to take the items out of the "flow" of the document, so that
+        // its siblings can move to take its place.
+        if (childData.boundingBox) {
+          removeNodeFromDOMFlow(childData, _this3.props.verticalAlignment);
+        }
+      });
+
+      if (maintainContainerHeight && this.heightPlaceholderData.domNode) {
+        updateHeightPlaceholder({
+          domNode: this.heightPlaceholderData.domNode,
+          parentData: this.parentData,
+          getPosition: getPosition
+        });
+      }
+    }
+
+    // For all children not in the middle of entering or leaving,
+    // we need to reset the transition, so that the NEW shuffle starts from
+    // the right place.
+    this.state.children.forEach(function (child) {
+      var _getChildData = _this3.getChildData(getKey(child)),
+          domNode = _getChildData.domNode;
+
+      // Ignore children that don't render DOM nodes (eg. by returning null)
+
+
+      if (!domNode) {
+        return;
+      }
+
+      if (!child.entering && !child.leaving) {
+        applyStylesToDOMNode({
+          domNode: domNode,
+          styles: {
+            transition: ''
+          }
+        });
+      }
+    });
+  };
+
+  // eslint-disable-next-line camelcase
+
+
+  FlipMove.prototype.UNSAFE_componentWillReceiveProps = function UNSAFE_componentWillReceiveProps(nextProps) {
+    // When the component is handed new props, we need to figure out the
+    // "resting" position of all currently-rendered DOM nodes.
+    // We store that data in this.parent and this.children,
+    // so it can be used later to work out the animation.
+    this.updateBoundingBoxCaches();
+
+    // Convert opaque children object to array.
+    var nextChildren = getElementChildren(nextProps.children);
+
+    // Next, we need to update our state, so that it contains our new set of
+    // children. If animation is disabled or unsupported, this is easy;
+    // we just copy our props into state.
+    // Assuming that we can animate, though, we have to do some work.
+    // Essentially, we want to keep just-deleted nodes in the DOM for a bit
+    // longer, so that we can animate them away.
+    this.setState({
+      children: this.isAnimationDisabled(nextProps) ? nextChildren.map(function (element) {
+        return _extends({}, element, { element: element });
+      }) : this.calculateNextSetOfChildren(nextChildren)
+    });
+  };
+
+  FlipMove.prototype.animateChild = function animateChild(child, index, childInitialStyles) {
+    var _this4 = this;
+
+    var _getChildData2 = this.getChildData(getKey(child)),
+        domNode = _getChildData2.domNode;
+
+    if (!domNode) {
+      return;
+    }
+
+    // Apply the relevant style for this DOM node
+    // This is the offset from its actual DOM position.
+    // eg. if an item has been re-rendered 20px lower, we want to apply a
+    // style of 'transform: translate(-20px)', so that it appears to be where
+    // it started.
+    // In FLIP terminology, this is the 'Invert' stage.
+    applyStylesToDOMNode({
+      domNode: domNode,
+      styles: childInitialStyles
+    });
+
+    // Start by invoking the onStart callback for this child.
+    if (this.props.onStart) this.props.onStart(child, domNode);
+
+    // Next, animate the item from it's artificially-offset position to its
+    // new, natural position.
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        // NOTE, RE: the double-requestAnimationFrame:
+        // Sadly, this is the most browser-compatible way to do this I've found.
+        // Essentially we need to set the initial styles outside of any request
+        // callbacks to avoid batching them. Then, a frame needs to pass with
+        // the styles above rendered. Then, on the second frame, we can apply
+        // our final styles to perform the animation.
+
+        // Our first order of business is to "undo" the styles applied in the
+        // previous frames, while also adding a `transition` property.
+        // This way, the item will smoothly transition from its old position
+        // to its new position.
+
+        // eslint-disable-next-line flowtype/require-variable-type
+        var styles = {
+          transition: createTransitionString(index, _this4.props),
+          transform: '',
+          opacity: ''
+        };
+
+        if (child.appearing && _this4.props.appearAnimation) {
+          styles = _extends({}, styles, _this4.props.appearAnimation.to);
+        } else if (child.entering && _this4.props.enterAnimation) {
+          styles = _extends({}, styles, _this4.props.enterAnimation.to);
+        } else if (child.leaving && _this4.props.leaveAnimation) {
+          styles = _extends({}, styles, _this4.props.leaveAnimation.to);
+        }
+
+        // In FLIP terminology, this is the 'Play' stage.
+        applyStylesToDOMNode({ domNode: domNode, styles: styles });
+      });
+    });
+
+    this.bindTransitionEndHandler(child);
+  };
+
+  FlipMove.prototype.bindTransitionEndHandler = function bindTransitionEndHandler(child) {
+    var _this5 = this;
+
+    var _getChildData3 = this.getChildData(getKey(child)),
+        domNode = _getChildData3.domNode;
+
+    if (!domNode) {
+      return;
+    }
+
+    // The onFinish callback needs to be bound to the transitionEnd event.
+    // We also need to unbind it when the transition completes, so this ugly
+    // inline function is required (we need it here so it closes over
+    // dependent variables `child` and `domNode`)
+    var transitionEndHandler = function transitionEndHandler(ev) {
+      // It's possible that this handler is fired not on our primary transition,
+      // but on a nested transition (eg. a hover effect). Ignore these cases.
+      if (ev.target !== domNode) return;
+
+      // Remove the 'transition' inline style we added. This is cleanup.
+      domNode.style.transition = '';
+
+      // Trigger any applicable onFinish/onFinishAll hooks
+      _this5.triggerFinishHooks(child, domNode);
+
+      domNode.removeEventListener(transitionEnd, transitionEndHandler);
+
+      if (child.leaving) {
+        _this5.removeChildData(getKey(child));
+      }
+    };
+
+    domNode.addEventListener(transitionEnd, transitionEndHandler);
+  };
+
+  FlipMove.prototype.triggerFinishHooks = function triggerFinishHooks(child, domNode) {
+    var _this6 = this;
+
+    if (this.props.onFinish) this.props.onFinish(child, domNode);
+
+    // Reduce the number of children we need to animate by 1,
+    // so that we can tell when all children have finished.
+    this.remainingAnimations -= 1;
+
+    if (this.remainingAnimations === 0) {
+      // Remove any items from the DOM that have left, and reset `entering`.
+      var nextChildren = this.state.children.filter(function (_ref2) {
+        var leaving = _ref2.leaving;
+        return !leaving;
+      }).map(function (item) {
+        return _extends({}, item, {
+          // fix for Flow
+          element: item.element,
+          appearing: false,
+          entering: false
+        });
+      });
+
+      this.setState({ children: nextChildren }, function () {
+        if (typeof _this6.props.onFinishAll === 'function') {
+          _this6.callChildrenHook(_this6.props.onFinishAll);
+        }
+
+        // Reset our variables for the next iteration
+        _this6.childrenToAnimate = [];
+      });
+
+      // If the placeholder was holding the container open while elements were
+      // leaving, we we can now set its height to zero.
+      if (this.heightPlaceholderData.domNode) {
+        this.heightPlaceholderData.domNode.style.height = '0';
+      }
+    }
+  };
+
+  FlipMove.prototype.callChildrenHook = function callChildrenHook(hook) {
+    var _this7 = this;
+
+    var elements = [];
+    var domNodes = [];
+
+    this.childrenToAnimate.forEach(function (childKey) {
+      // If this was an exit animation, the child may no longer exist.
+      // If so, skip it.
+      var child = _this7.findChildByKey(childKey);
+
+      if (!child) {
+        return;
+      }
+
+      elements.push(child);
+
+      if (_this7.hasChildData(childKey)) {
+        domNodes.push(_this7.getChildData(childKey).domNode);
+      }
+    });
+
+    hook(elements, domNodes);
+  };
+
+  FlipMove.prototype.updateBoundingBoxCaches = function updateBoundingBoxCaches() {
+    var _this8 = this;
+
+    // This is the ONLY place that parentData and childrenData's
+    // bounding boxes are updated. They will be calculated at other times
+    // to be compared to this value, but it's important that the cache is
+    // updated once per update.
+    var parentDomNode = this.parentData.domNode;
+
+    if (!parentDomNode) {
+      return;
+    }
+
+    this.parentData.boundingBox = this.props.getPosition(parentDomNode);
+
+    // Splitting DOM reads and writes to be peformed in batches
+    var childrenBoundingBoxes = [];
+
+    this.state.children.forEach(function (child) {
+      var childKey = getKey(child);
+
+      // It is possible that a child does not have a `key` property;
+      // Ignore these children, they don't need to be moved.
+      if (!childKey) {
+        childrenBoundingBoxes.push(null);
+        return;
+      }
+
+      // In very rare circumstances, for reasons unknown, the ref is never
+      // populated for certain children. In this case, avoid doing this update.
+      // see: https://github.com/joshwcomeau/react-flip-move/pull/91
+      if (!_this8.hasChildData(childKey)) {
+        childrenBoundingBoxes.push(null);
+        return;
+      }
+
+      var childData = _this8.getChildData(childKey);
+
+      // If the child element returns null, we need to avoid trying to
+      // account for it
+      if (!childData.domNode || !child) {
+        childrenBoundingBoxes.push(null);
+        return;
+      }
+
+      childrenBoundingBoxes.push(getRelativeBoundingBox({
+        childDomNode: childData.domNode,
+        parentDomNode: parentDomNode,
+        getPosition: _this8.props.getPosition
+      }));
+    });
+
+    this.state.children.forEach(function (child, index) {
+      var childKey = getKey(child);
+
+      var childBoundingBox = childrenBoundingBoxes[index];
+
+      if (!childKey) {
+        return;
+      }
+
+      _this8.setChildData(childKey, {
+        boundingBox: childBoundingBox
+      });
+    });
+  };
+
+  FlipMove.prototype.computeInitialStyles = function computeInitialStyles(child) {
+    if (child.appearing) {
+      return this.props.appearAnimation ? this.props.appearAnimation.from : {};
+    } else if (child.entering) {
+      if (!this.props.enterAnimation) {
+        return {};
+      }
+      // If this child was in the middle of leaving, it still has its
+      // absolute positioning styles applied. We need to undo those.
+      return _extends({
+        position: '',
+        top: '',
+        left: '',
+        right: '',
+        bottom: ''
+      }, this.props.enterAnimation.from);
+    } else if (child.leaving) {
+      return this.props.leaveAnimation ? this.props.leaveAnimation.from : {};
+    }
+
+    var childData = this.getChildData(getKey(child));
+    var childDomNode = childData.domNode;
+    var childBoundingBox = childData.boundingBox;
+    var parentBoundingBox = this.parentData.boundingBox;
+
+    if (!childDomNode) {
+      return {};
+    }
+
+    var _getPositionDelta2 = getPositionDelta({
+      childDomNode: childDomNode,
+      childBoundingBox: childBoundingBox,
+      parentBoundingBox: parentBoundingBox,
+      getPosition: this.props.getPosition
+    }),
+        dX = _getPositionDelta2[0],
+        dY = _getPositionDelta2[1];
+
+    return {
+      transform: 'translate(' + dX + 'px, ' + dY + 'px)'
+    };
+  };
+
+  // eslint-disable-next-line class-methods-use-this
+
+
+  FlipMove.prototype.isAnimationDisabled = function isAnimationDisabled(props) {
+    // If the component is explicitly passed a `disableAllAnimations` flag,
+    // we can skip this whole process. Similarly, if all of the numbers have
+    // been set to 0, there is no point in trying to animate; doing so would
+    // only cause a flicker (and the intent is probably to disable animations)
+    // We can also skip this rigamarole if there's no browser support for it.
+    return noBrowserSupport || props.disableAllAnimations || props.duration === 0 && props.delay === 0 && props.staggerDurationBy === 0 && props.staggerDelayBy === 0;
+  };
+
+  FlipMove.prototype.findChildByKey = function findChildByKey(key) {
+    return find(function (child) {
+      return getKey(child) === key;
+    }, this.state.children);
+  };
+
+  FlipMove.prototype.hasChildData = function hasChildData(key) {
+    // Object has some built-in properties on its prototype, such as toString.  hasOwnProperty makes
+    // sure that key is present on childrenData itself, not on its prototype.
+    return Object.prototype.hasOwnProperty.call(this.childrenData, key);
+  };
+
+  FlipMove.prototype.getChildData = function getChildData(key) {
+    return this.hasChildData(key) ? this.childrenData[key] : {};
+  };
+
+  FlipMove.prototype.setChildData = function setChildData(key, data) {
+    this.childrenData[key] = _extends({}, this.getChildData(key), data);
+  };
+
+  FlipMove.prototype.removeChildData = function removeChildData(key) {
+    delete this.childrenData[key];
+    this.setState(function (prevState) {
+      return _extends({}, prevState, {
+        children: prevState.children.filter(function (child) {
+          return child.element.key !== key;
+        })
+      });
+    });
+  };
+
+  FlipMove.prototype.createHeightPlaceholder = function createHeightPlaceholder() {
+    var _this9 = this;
+
+    var typeName = this.props.typeName;
+
+    // If requested, create an invisible element at the end of the list.
+    // Its height will be modified to prevent the container from collapsing
+    // prematurely.
+
+    var isContainerAList = typeName === 'ul' || typeName === 'ol';
+    var placeholderType = isContainerAList ? 'li' : 'div';
+
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(placeholderType, {
+      key: 'height-placeholder',
+      ref: function ref(domNode) {
+        _this9.heightPlaceholderData.domNode = domNode;
+      },
+      style: { visibility: 'hidden', height: 0 }
+    });
+  };
+
+  FlipMove.prototype.childrenWithRefs = function childrenWithRefs() {
+    var _this10 = this;
+
+    // We need to clone the provided children, capturing a reference to the
+    // underlying DOM node. Flip Move needs to use the React escape hatches to
+    // be able to do its calculations.
+    return this.state.children.map(function (child) {
+      return (0,react__WEBPACK_IMPORTED_MODULE_0__.cloneElement)(child.element, {
+        ref: function ref(element) {
+          // Stateless Functional Components are not supported by FlipMove,
+          // because they don't have instances.
+          if (!element) {
+            return;
+          }
+
+          var domNode = getNativeNode(element);
+          _this10.setChildData(getKey(child), { domNode: domNode });
+        }
+      });
+    });
+  };
+
+  FlipMove.prototype.render = function render() {
+    var _this11 = this;
+
+    var _props2 = this.props,
+        typeName = _props2.typeName,
+        delegated = _props2.delegated,
+        leaveAnimation = _props2.leaveAnimation,
+        maintainContainerHeight = _props2.maintainContainerHeight;
+
+
+    var children = this.childrenWithRefs();
+    if (leaveAnimation && maintainContainerHeight) {
+      children.push(this.createHeightPlaceholder());
+    }
+
+    if (!typeName) return children;
+
+    var props = _extends({}, delegated, {
+      children: children,
+      ref: function ref(node) {
+        _this11.parentData.domNode = node;
+      }
+    });
+
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(typeName, props);
+  };
+
+  return FlipMove;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+var enhancedFlipMove = /* #__PURE__ */propConverter(FlipMove$1);
+
+/**
+ * React Flip Move
+ * (c) 2016-present Joshua Comeau
+ */
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (enhancedFlipMove);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-images-upload/compiled.js":
+/*!******************************************************!*\
+  !*** ./node_modules/react-images-upload/compiled.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react-images-upload/node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+__webpack_require__(/*! ./index.css */ "./node_modules/react-images-upload/index.css");
+
+var _reactFlipMove = __webpack_require__(/*! react-flip-move */ "./node_modules/react-flip-move/dist/react-flip-move.es.js");
+
+var _reactFlipMove2 = _interopRequireDefault(_reactFlipMove);
+
+var _UploadIcon = __webpack_require__(/*! ./UploadIcon.svg */ "./node_modules/react-images-upload/UploadIcon.svg");
+
+var _UploadIcon2 = _interopRequireDefault(_UploadIcon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var styles = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  flexWrap: "wrap",
+  width: "100%"
+};
+
+var ERROR = {
+  NOT_SUPPORTED_EXTENSION: 'NOT_SUPPORTED_EXTENSION',
+  FILESIZE_TOO_LARGE: 'FILESIZE_TOO_LARGE'
+};
+
+var ReactImageUploadComponent = function (_React$Component) {
+  _inherits(ReactImageUploadComponent, _React$Component);
+
+  function ReactImageUploadComponent(props) {
+    _classCallCheck(this, ReactImageUploadComponent);
+
+    var _this = _possibleConstructorReturn(this, (ReactImageUploadComponent.__proto__ || Object.getPrototypeOf(ReactImageUploadComponent)).call(this, props));
+
+    _this.state = {
+      pictures: [].concat(_toConsumableArray(props.defaultImages)),
+      files: [],
+      fileErrors: []
+    };
+    _this.inputElement = '';
+    _this.onDropFile = _this.onDropFile.bind(_this);
+    _this.onUploadClick = _this.onUploadClick.bind(_this);
+    _this.triggerFileUpload = _this.triggerFileUpload.bind(_this);
+    return _this;
+  }
+
+  _createClass(ReactImageUploadComponent, [{
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate(prevProps, prevState, snapshot) {
+      if (prevState.files !== this.state.files) {
+        this.props.onChange(this.state.files, this.state.pictures);
+      }
+    }
+
+    /*
+     Load image at the beggining if defaultImage prop exists
+     */
+
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.defaultImages !== this.props.defaultImages) {
+        this.setState({ pictures: nextProps.defaultImages });
+      }
+    }
+
+    /*
+    Check file extension (onDropFile)
+    */
+
+  }, {
+    key: 'hasExtension',
+    value: function hasExtension(fileName) {
+      var pattern = '(' + this.props.imgExtension.join('|').replace(/\./g, '\\.') + ')$';
+      return new RegExp(pattern, 'i').test(fileName);
+    }
+
+    /*
+     Handle file validation
+     */
+
+  }, {
+    key: 'onDropFile',
+    value: function onDropFile(e) {
+      var _this2 = this;
+
+      var files = e.target.files;
+      var allFilePromises = [];
+      var fileErrors = [];
+
+      // Iterate over all uploaded files
+      for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        var fileError = {
+          name: file.name
+        };
+        // Check for file extension
+        if (!this.hasExtension(file.name)) {
+          fileError = Object.assign(fileError, {
+            type: ERROR.NOT_SUPPORTED_EXTENSION
+          });
+          fileErrors.push(fileError);
+          continue;
+        }
+        // Check for file size
+        if (file.size > this.props.maxFileSize) {
+          fileError = Object.assign(fileError, {
+            type: ERROR.FILESIZE_TOO_LARGE
+          });
+          fileErrors.push(fileError);
+          continue;
+        }
+
+        allFilePromises.push(this.readFile(file));
+      }
+
+      this.setState({
+        fileErrors: fileErrors
+      });
+
+      var singleImage = this.props.singleImage;
+
+
+      Promise.all(allFilePromises).then(function (newFilesData) {
+        var dataURLs = singleImage ? [] : _this2.state.pictures.slice();
+        var files = singleImage ? [] : _this2.state.files.slice();
+
+        newFilesData.forEach(function (newFileData) {
+          dataURLs.push(newFileData.dataURL);
+          files.push(newFileData.file);
+        });
+
+        _this2.setState({ pictures: dataURLs, files: files });
+      });
+    }
+  }, {
+    key: 'onUploadClick',
+    value: function onUploadClick(e) {
+      // Fixes https://github.com/JakeHartnell/react-images-upload/issues/55
+      e.target.value = null;
+    }
+
+    /*
+       Read a file and return a promise that when resolved gives the file itself and the data URL
+     */
+
+  }, {
+    key: 'readFile',
+    value: function readFile(file) {
+      return new Promise(function (resolve, reject) {
+        var reader = new FileReader();
+
+        // Read the image via FileReader API and save image result in state.
+        reader.onload = function (e) {
+          // Add the file name to the data URL
+          var dataURL = e.target.result;
+          dataURL = dataURL.replace(";base64", ';name=' + file.name + ';base64');
+          resolve({ file: file, dataURL: dataURL });
+        };
+
+        reader.readAsDataURL(file);
+      });
+    }
+
+    /*
+     Remove the image from state
+     */
+
+  }, {
+    key: 'removeImage',
+    value: function removeImage(picture) {
+      var _this3 = this;
+
+      var removeIndex = this.state.pictures.findIndex(function (e) {
+        return e === picture;
+      });
+      var filteredPictures = this.state.pictures.filter(function (e, index) {
+        return index !== removeIndex;
+      });
+      var filteredFiles = this.state.files.filter(function (e, index) {
+        return index !== removeIndex;
+      });
+
+      this.setState({ pictures: filteredPictures, files: filteredFiles }, function () {
+        _this3.props.onChange(_this3.state.files, _this3.state.pictures);
+      });
+    }
+
+    /*
+     Check if any errors && render
+     */
+
+  }, {
+    key: 'renderErrors',
+    value: function renderErrors() {
+      var _this4 = this;
+
+      var fileErrors = this.state.fileErrors;
+
+      return fileErrors.map(function (fileError, index) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'errorMessage ' + _this4.props.errorClass, key: index, style: _this4.props.errorStyle },
+          '* ',
+          fileError.name,
+          ' ',
+          fileError.type === ERROR.FILESIZE_TOO_LARGE ? _this4.props.fileSizeError : _this4.props.fileTypeError
+        );
+      });
+    }
+
+    /*
+     Render the upload icon
+     */
+
+  }, {
+    key: 'renderIcon',
+    value: function renderIcon() {
+      if (this.props.withIcon) {
+        return _react2.default.createElement('img', { src: _UploadIcon2.default, className: 'uploadIcon', alt: 'Upload Icon' });
+      }
+    }
+
+    /*
+     Render label
+     */
+
+  }, {
+    key: 'renderLabel',
+    value: function renderLabel() {
+      if (this.props.withLabel) {
+        return _react2.default.createElement(
+          'p',
+          { className: this.props.labelClass, style: this.props.labelStyles },
+          this.props.label
+        );
+      }
+    }
+
+    /*
+     Render preview images
+     */
+
+  }, {
+    key: 'renderPreview',
+    value: function renderPreview() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'uploadPicturesWrapper' },
+        _react2.default.createElement(
+          _reactFlipMove2.default,
+          { enterAnimation: 'fade', leaveAnimation: 'fade', style: styles },
+          this.renderPreviewPictures()
+        )
+      );
+    }
+  }, {
+    key: 'renderPreviewPictures',
+    value: function renderPreviewPictures() {
+      var _this5 = this;
+
+      return this.state.pictures.map(function (picture, index) {
+        return _react2.default.createElement(
+          'div',
+          { key: index, className: 'uploadPictureContainer' },
+          _react2.default.createElement(
+            'div',
+            { className: 'deleteImage', onClick: function onClick() {
+                return _this5.removeImage(picture);
+              } },
+            'X'
+          ),
+          _react2.default.createElement('img', { src: picture, className: 'uploadPicture', alt: 'preview' })
+        );
+      });
+    }
+
+    /*
+     On button click, trigger input file to open
+     */
+
+  }, {
+    key: 'triggerFileUpload',
+    value: function triggerFileUpload() {
+      this.inputElement.click();
+    }
+  }, {
+    key: 'clearPictures',
+    value: function clearPictures() {
+      this.setState({ pictures: [] });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this6 = this;
+
+      return _react2.default.createElement(
+        'div',
+        { className: "fileUploader " + this.props.className, style: this.props.style },
+        _react2.default.createElement(
+          'div',
+          { className: 'fileContainer', style: this.props.fileContainerStyle },
+          this.renderIcon(),
+          this.renderLabel(),
+          _react2.default.createElement(
+            'div',
+            { className: 'errorsContainer' },
+            this.renderErrors()
+          ),
+          _react2.default.createElement(
+            'button',
+            {
+              type: this.props.buttonType,
+              className: "chooseFileButton " + this.props.buttonClassName,
+              style: this.props.buttonStyles,
+              onClick: this.triggerFileUpload
+            },
+            this.props.buttonText
+          ),
+          _react2.default.createElement('input', {
+            type: 'file',
+            ref: function ref(input) {
+              return _this6.inputElement = input;
+            },
+            name: this.props.name,
+            multiple: !this.props.singleImage,
+            onChange: this.onDropFile,
+            onClick: this.onUploadClick,
+            accept: this.props.accept
+          }),
+          this.props.withPreview ? this.renderPreview() : null
+        )
+      );
+    }
+  }]);
+
+  return ReactImageUploadComponent;
+}(_react2.default.Component);
+
+ReactImageUploadComponent.defaultProps = {
+  className: '',
+  fileContainerStyle: {},
+  buttonClassName: "",
+  buttonStyles: {},
+  withPreview: false,
+  accept: "image/*",
+  name: "",
+  withIcon: true,
+  buttonText: "Choose images",
+  buttonType: "button",
+  withLabel: true,
+  label: "Max file size: 5mb, accepted: jpg|gif|png",
+  labelStyles: {},
+  labelClass: "",
+  imgExtension: ['.jpg', '.jpeg', '.gif', '.png'],
+  maxFileSize: 5242880,
+  fileSizeError: " file size is too big",
+  fileTypeError: " is not a supported file extension",
+  errorClass: "",
+  style: {},
+  errorStyle: {},
+  singleImage: false,
+  onChange: function onChange() {},
+  defaultImages: []
+};
+
+ReactImageUploadComponent.propTypes = {
+  style: _propTypes2.default.object,
+  fileContainerStyle: _propTypes2.default.object,
+  className: _propTypes2.default.string,
+  onChange: _propTypes2.default.func,
+  onDelete: _propTypes2.default.func,
+  buttonClassName: _propTypes2.default.string,
+  buttonStyles: _propTypes2.default.object,
+  buttonType: _propTypes2.default.string,
+  withPreview: _propTypes2.default.bool,
+  accept: _propTypes2.default.string,
+  name: _propTypes2.default.string,
+  withIcon: _propTypes2.default.bool,
+  buttonText: _propTypes2.default.string,
+  withLabel: _propTypes2.default.bool,
+  label: _propTypes2.default.string,
+  labelStyles: _propTypes2.default.object,
+  labelClass: _propTypes2.default.string,
+  imgExtension: _propTypes2.default.array,
+  maxFileSize: _propTypes2.default.number,
+  fileSizeError: _propTypes2.default.string,
+  fileTypeError: _propTypes2.default.string,
+  errorClass: _propTypes2.default.string,
+  errorStyle: _propTypes2.default.object,
+  singleImage: _propTypes2.default.bool,
+  defaultImages: _propTypes2.default.array
+};
+
+exports.default = ReactImageUploadComponent;
+
+
+/***/ }),
+
+/***/ "./node_modules/react-images-upload/node_modules/react/cjs/react.development.js":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/react-images-upload/node_modules/react/cjs/react.development.js ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+/** @license React v16.14.0
+ * react.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+
+
+if (true) {
+  (function() {
+'use strict';
+
+var _assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
+var checkPropTypes = __webpack_require__(/*! prop-types/checkPropTypes */ "./node_modules/prop-types/checkPropTypes.js");
+
+var ReactVersion = '16.14.0';
+
+// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+// nor polyfill, then a plain number is used for performance.
+var hasSymbol = typeof Symbol === 'function' && Symbol.for;
+var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
+var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
+var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
+var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
+var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
+var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
+var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
+var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
+var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
+var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
+var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
+var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
+var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
+var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 0xead9;
+var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;
+var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;
+var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 0xead7;
+var MAYBE_ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+var FAUX_ITERATOR_SYMBOL = '@@iterator';
+function getIteratorFn(maybeIterable) {
+  if (maybeIterable === null || typeof maybeIterable !== 'object') {
+    return null;
+  }
+
+  var maybeIterator = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL];
+
+  if (typeof maybeIterator === 'function') {
+    return maybeIterator;
+  }
+
+  return null;
+}
+
+/**
+ * Keeps track of the current dispatcher.
+ */
+var ReactCurrentDispatcher = {
+  /**
+   * @internal
+   * @type {ReactComponent}
+   */
+  current: null
+};
+
+/**
+ * Keeps track of the current batch's configuration such as how long an update
+ * should suspend for if it needs to.
+ */
+var ReactCurrentBatchConfig = {
+  suspense: null
+};
+
+/**
+ * Keeps track of the current owner.
+ *
+ * The current owner is the component who should own any components that are
+ * currently being constructed.
+ */
+var ReactCurrentOwner = {
+  /**
+   * @internal
+   * @type {ReactComponent}
+   */
+  current: null
+};
+
+var BEFORE_SLASH_RE = /^(.*)[\\\/]/;
+function describeComponentFrame (name, source, ownerName) {
+  var sourceInfo = '';
+
+  if (source) {
+    var path = source.fileName;
+    var fileName = path.replace(BEFORE_SLASH_RE, '');
+
+    {
+      // In DEV, include code for a common special case:
+      // prefer "folder/index.js" instead of just "index.js".
+      if (/^index\./.test(fileName)) {
+        var match = path.match(BEFORE_SLASH_RE);
+
+        if (match) {
+          var pathBeforeSlash = match[1];
+
+          if (pathBeforeSlash) {
+            var folderName = pathBeforeSlash.replace(BEFORE_SLASH_RE, '');
+            fileName = folderName + '/' + fileName;
+          }
+        }
+      }
+    }
+
+    sourceInfo = ' (at ' + fileName + ':' + source.lineNumber + ')';
+  } else if (ownerName) {
+    sourceInfo = ' (created by ' + ownerName + ')';
+  }
+
+  return '\n    in ' + (name || 'Unknown') + sourceInfo;
+}
+
+var Resolved = 1;
+function refineResolvedLazyComponent(lazyComponent) {
+  return lazyComponent._status === Resolved ? lazyComponent._result : null;
+}
+
+function getWrappedName(outerType, innerType, wrapperName) {
+  var functionName = innerType.displayName || innerType.name || '';
+  return outerType.displayName || (functionName !== '' ? wrapperName + "(" + functionName + ")" : wrapperName);
+}
+
+function getComponentName(type) {
+  if (type == null) {
+    // Host root, text node or just invalid type.
+    return null;
+  }
+
+  {
+    if (typeof type.tag === 'number') {
+      error('Received an unexpected object in getComponentName(). ' + 'This is likely a bug in React. Please file an issue.');
+    }
+  }
+
+  if (typeof type === 'function') {
+    return type.displayName || type.name || null;
+  }
+
+  if (typeof type === 'string') {
+    return type;
+  }
+
+  switch (type) {
+    case REACT_FRAGMENT_TYPE:
+      return 'Fragment';
+
+    case REACT_PORTAL_TYPE:
+      return 'Portal';
+
+    case REACT_PROFILER_TYPE:
+      return "Profiler";
+
+    case REACT_STRICT_MODE_TYPE:
+      return 'StrictMode';
+
+    case REACT_SUSPENSE_TYPE:
+      return 'Suspense';
+
+    case REACT_SUSPENSE_LIST_TYPE:
+      return 'SuspenseList';
+  }
+
+  if (typeof type === 'object') {
+    switch (type.$$typeof) {
+      case REACT_CONTEXT_TYPE:
+        return 'Context.Consumer';
+
+      case REACT_PROVIDER_TYPE:
+        return 'Context.Provider';
+
+      case REACT_FORWARD_REF_TYPE:
+        return getWrappedName(type, type.render, 'ForwardRef');
+
+      case REACT_MEMO_TYPE:
+        return getComponentName(type.type);
+
+      case REACT_BLOCK_TYPE:
+        return getComponentName(type.render);
+
+      case REACT_LAZY_TYPE:
+        {
+          var thenable = type;
+          var resolvedThenable = refineResolvedLazyComponent(thenable);
+
+          if (resolvedThenable) {
+            return getComponentName(resolvedThenable);
+          }
+
+          break;
+        }
+    }
+  }
+
+  return null;
+}
+
+var ReactDebugCurrentFrame = {};
+var currentlyValidatingElement = null;
+function setCurrentlyValidatingElement(element) {
+  {
+    currentlyValidatingElement = element;
+  }
+}
+
+{
+  // Stack implementation injected by the current renderer.
+  ReactDebugCurrentFrame.getCurrentStack = null;
+
+  ReactDebugCurrentFrame.getStackAddendum = function () {
+    var stack = ''; // Add an extra top frame while an element is being validated
+
+    if (currentlyValidatingElement) {
+      var name = getComponentName(currentlyValidatingElement.type);
+      var owner = currentlyValidatingElement._owner;
+      stack += describeComponentFrame(name, currentlyValidatingElement._source, owner && getComponentName(owner.type));
+    } // Delegate to the injected renderer-specific implementation
+
+
+    var impl = ReactDebugCurrentFrame.getCurrentStack;
+
+    if (impl) {
+      stack += impl() || '';
+    }
+
+    return stack;
+  };
+}
+
+/**
+ * Used by act() to track whether you're inside an act() scope.
+ */
+var IsSomeRendererActing = {
+  current: false
+};
+
+var ReactSharedInternals = {
+  ReactCurrentDispatcher: ReactCurrentDispatcher,
+  ReactCurrentBatchConfig: ReactCurrentBatchConfig,
+  ReactCurrentOwner: ReactCurrentOwner,
+  IsSomeRendererActing: IsSomeRendererActing,
+  // Used by renderers to avoid bundling object-assign twice in UMD bundles:
+  assign: _assign
+};
+
+{
+  _assign(ReactSharedInternals, {
+    // These should not be included in production.
+    ReactDebugCurrentFrame: ReactDebugCurrentFrame,
+    // Shim for React DOM 16.0.0 which still destructured (but not used) this.
+    // TODO: remove in React 17.0.
+    ReactComponentTreeHook: {}
+  });
+}
+
+// by calls to these methods by a Babel plugin.
+//
+// In PROD (or in packages without access to React internals),
+// they are left as they are instead.
+
+function warn(format) {
+  {
+    for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    printWarning('warn', format, args);
+  }
+}
+function error(format) {
+  {
+    for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+      args[_key2 - 1] = arguments[_key2];
+    }
+
+    printWarning('error', format, args);
+  }
+}
+
+function printWarning(level, format, args) {
+  // When changing this logic, you might want to also
+  // update consoleWithStackDev.www.js as well.
+  {
+    var hasExistingStack = args.length > 0 && typeof args[args.length - 1] === 'string' && args[args.length - 1].indexOf('\n    in') === 0;
+
+    if (!hasExistingStack) {
+      var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
+      var stack = ReactDebugCurrentFrame.getStackAddendum();
+
+      if (stack !== '') {
+        format += '%s';
+        args = args.concat([stack]);
+      }
+    }
+
+    var argsWithFormat = args.map(function (item) {
+      return '' + item;
+    }); // Careful: RN currently depends on this prefix
+
+    argsWithFormat.unshift('Warning: ' + format); // We intentionally don't use spread (or .apply) directly because it
+    // breaks IE9: https://github.com/facebook/react/issues/13610
+    // eslint-disable-next-line react-internal/no-production-logging
+
+    Function.prototype.apply.call(console[level], console, argsWithFormat);
+
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      var argIndex = 0;
+      var message = 'Warning: ' + format.replace(/%s/g, function () {
+        return args[argIndex++];
+      });
+      throw new Error(message);
+    } catch (x) {}
+  }
+}
+
+var didWarnStateUpdateForUnmountedComponent = {};
+
+function warnNoop(publicInstance, callerName) {
+  {
+    var _constructor = publicInstance.constructor;
+    var componentName = _constructor && (_constructor.displayName || _constructor.name) || 'ReactClass';
+    var warningKey = componentName + "." + callerName;
+
+    if (didWarnStateUpdateForUnmountedComponent[warningKey]) {
+      return;
+    }
+
+    error("Can't call %s on a component that is not yet mounted. " + 'This is a no-op, but it might indicate a bug in your application. ' + 'Instead, assign to `this.state` directly or define a `state = {};` ' + 'class property with the desired state in the %s component.', callerName, componentName);
+
+    didWarnStateUpdateForUnmountedComponent[warningKey] = true;
+  }
+}
+/**
+ * This is the abstract API for an update queue.
+ */
+
+
+var ReactNoopUpdateQueue = {
+  /**
+   * Checks whether or not this composite component is mounted.
+   * @param {ReactClass} publicInstance The instance we want to test.
+   * @return {boolean} True if mounted, false otherwise.
+   * @protected
+   * @final
+   */
+  isMounted: function (publicInstance) {
+    return false;
+  },
+
+  /**
+   * Forces an update. This should only be invoked when it is known with
+   * certainty that we are **not** in a DOM transaction.
+   *
+   * You may want to call this when you know that some deeper aspect of the
+   * component's state has changed but `setState` was not called.
+   *
+   * This will not invoke `shouldComponentUpdate`, but it will invoke
+   * `componentWillUpdate` and `componentDidUpdate`.
+   *
+   * @param {ReactClass} publicInstance The instance that should rerender.
+   * @param {?function} callback Called after component is updated.
+   * @param {?string} callerName name of the calling function in the public API.
+   * @internal
+   */
+  enqueueForceUpdate: function (publicInstance, callback, callerName) {
+    warnNoop(publicInstance, 'forceUpdate');
+  },
+
+  /**
+   * Replaces all of the state. Always use this or `setState` to mutate state.
+   * You should treat `this.state` as immutable.
+   *
+   * There is no guarantee that `this.state` will be immediately updated, so
+   * accessing `this.state` after calling this method may return the old value.
+   *
+   * @param {ReactClass} publicInstance The instance that should rerender.
+   * @param {object} completeState Next state.
+   * @param {?function} callback Called after component is updated.
+   * @param {?string} callerName name of the calling function in the public API.
+   * @internal
+   */
+  enqueueReplaceState: function (publicInstance, completeState, callback, callerName) {
+    warnNoop(publicInstance, 'replaceState');
+  },
+
+  /**
+   * Sets a subset of the state. This only exists because _pendingState is
+   * internal. This provides a merging strategy that is not available to deep
+   * properties which is confusing. TODO: Expose pendingState or don't use it
+   * during the merge.
+   *
+   * @param {ReactClass} publicInstance The instance that should rerender.
+   * @param {object} partialState Next partial state to be merged with state.
+   * @param {?function} callback Called after component is updated.
+   * @param {?string} Name of the calling function in the public API.
+   * @internal
+   */
+  enqueueSetState: function (publicInstance, partialState, callback, callerName) {
+    warnNoop(publicInstance, 'setState');
+  }
+};
+
+var emptyObject = {};
+
+{
+  Object.freeze(emptyObject);
+}
+/**
+ * Base class helpers for the updating state of a component.
+ */
+
+
+function Component(props, context, updater) {
+  this.props = props;
+  this.context = context; // If a component has string refs, we will assign a different object later.
+
+  this.refs = emptyObject; // We initialize the default updater but the real one gets injected by the
+  // renderer.
+
+  this.updater = updater || ReactNoopUpdateQueue;
+}
+
+Component.prototype.isReactComponent = {};
+/**
+ * Sets a subset of the state. Always use this to mutate
+ * state. You should treat `this.state` as immutable.
+ *
+ * There is no guarantee that `this.state` will be immediately updated, so
+ * accessing `this.state` after calling this method may return the old value.
+ *
+ * There is no guarantee that calls to `setState` will run synchronously,
+ * as they may eventually be batched together.  You can provide an optional
+ * callback that will be executed when the call to setState is actually
+ * completed.
+ *
+ * When a function is provided to setState, it will be called at some point in
+ * the future (not synchronously). It will be called with the up to date
+ * component arguments (state, props, context). These values can be different
+ * from this.* because your function may be called after receiveProps but before
+ * shouldComponentUpdate, and this new state, props, and context will not yet be
+ * assigned to this.
+ *
+ * @param {object|function} partialState Next partial state or function to
+ *        produce next partial state to be merged with current state.
+ * @param {?function} callback Called after state is updated.
+ * @final
+ * @protected
+ */
+
+Component.prototype.setState = function (partialState, callback) {
+  if (!(typeof partialState === 'object' || typeof partialState === 'function' || partialState == null)) {
+    {
+      throw Error( "setState(...): takes an object of state variables to update or a function which returns an object of state variables." );
+    }
+  }
+
+  this.updater.enqueueSetState(this, partialState, callback, 'setState');
+};
+/**
+ * Forces an update. This should only be invoked when it is known with
+ * certainty that we are **not** in a DOM transaction.
+ *
+ * You may want to call this when you know that some deeper aspect of the
+ * component's state has changed but `setState` was not called.
+ *
+ * This will not invoke `shouldComponentUpdate`, but it will invoke
+ * `componentWillUpdate` and `componentDidUpdate`.
+ *
+ * @param {?function} callback Called after update is complete.
+ * @final
+ * @protected
+ */
+
+
+Component.prototype.forceUpdate = function (callback) {
+  this.updater.enqueueForceUpdate(this, callback, 'forceUpdate');
+};
+/**
+ * Deprecated APIs. These APIs used to exist on classic React classes but since
+ * we would like to deprecate them, we're not going to move them over to this
+ * modern base class. Instead, we define a getter that warns if it's accessed.
+ */
+
+
+{
+  var deprecatedAPIs = {
+    isMounted: ['isMounted', 'Instead, make sure to clean up subscriptions and pending requests in ' + 'componentWillUnmount to prevent memory leaks.'],
+    replaceState: ['replaceState', 'Refactor your code to use setState instead (see ' + 'https://github.com/facebook/react/issues/3236).']
+  };
+
+  var defineDeprecationWarning = function (methodName, info) {
+    Object.defineProperty(Component.prototype, methodName, {
+      get: function () {
+        warn('%s(...) is deprecated in plain JavaScript React classes. %s', info[0], info[1]);
+
+        return undefined;
+      }
+    });
+  };
+
+  for (var fnName in deprecatedAPIs) {
+    if (deprecatedAPIs.hasOwnProperty(fnName)) {
+      defineDeprecationWarning(fnName, deprecatedAPIs[fnName]);
+    }
+  }
+}
+
+function ComponentDummy() {}
+
+ComponentDummy.prototype = Component.prototype;
+/**
+ * Convenience component with default shallow equality check for sCU.
+ */
+
+function PureComponent(props, context, updater) {
+  this.props = props;
+  this.context = context; // If a component has string refs, we will assign a different object later.
+
+  this.refs = emptyObject;
+  this.updater = updater || ReactNoopUpdateQueue;
+}
+
+var pureComponentPrototype = PureComponent.prototype = new ComponentDummy();
+pureComponentPrototype.constructor = PureComponent; // Avoid an extra prototype jump for these methods.
+
+_assign(pureComponentPrototype, Component.prototype);
+
+pureComponentPrototype.isPureReactComponent = true;
+
+// an immutable object with a single mutable value
+function createRef() {
+  var refObject = {
+    current: null
+  };
+
+  {
+    Object.seal(refObject);
+  }
+
+  return refObject;
+}
+
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var RESERVED_PROPS = {
+  key: true,
+  ref: true,
+  __self: true,
+  __source: true
+};
+var specialPropKeyWarningShown, specialPropRefWarningShown, didWarnAboutStringRefs;
+
+{
+  didWarnAboutStringRefs = {};
+}
+
+function hasValidRef(config) {
+  {
+    if (hasOwnProperty.call(config, 'ref')) {
+      var getter = Object.getOwnPropertyDescriptor(config, 'ref').get;
+
+      if (getter && getter.isReactWarning) {
+        return false;
+      }
+    }
+  }
+
+  return config.ref !== undefined;
+}
+
+function hasValidKey(config) {
+  {
+    if (hasOwnProperty.call(config, 'key')) {
+      var getter = Object.getOwnPropertyDescriptor(config, 'key').get;
+
+      if (getter && getter.isReactWarning) {
+        return false;
+      }
+    }
+  }
+
+  return config.key !== undefined;
+}
+
+function defineKeyPropWarningGetter(props, displayName) {
+  var warnAboutAccessingKey = function () {
+    {
+      if (!specialPropKeyWarningShown) {
+        specialPropKeyWarningShown = true;
+
+        error('%s: `key` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://fb.me/react-special-props)', displayName);
+      }
+    }
+  };
+
+  warnAboutAccessingKey.isReactWarning = true;
+  Object.defineProperty(props, 'key', {
+    get: warnAboutAccessingKey,
+    configurable: true
+  });
+}
+
+function defineRefPropWarningGetter(props, displayName) {
+  var warnAboutAccessingRef = function () {
+    {
+      if (!specialPropRefWarningShown) {
+        specialPropRefWarningShown = true;
+
+        error('%s: `ref` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://fb.me/react-special-props)', displayName);
+      }
+    }
+  };
+
+  warnAboutAccessingRef.isReactWarning = true;
+  Object.defineProperty(props, 'ref', {
+    get: warnAboutAccessingRef,
+    configurable: true
+  });
+}
+
+function warnIfStringRefCannotBeAutoConverted(config) {
+  {
+    if (typeof config.ref === 'string' && ReactCurrentOwner.current && config.__self && ReactCurrentOwner.current.stateNode !== config.__self) {
+      var componentName = getComponentName(ReactCurrentOwner.current.type);
+
+      if (!didWarnAboutStringRefs[componentName]) {
+        error('Component "%s" contains the string ref "%s". ' + 'Support for string refs will be removed in a future major release. ' + 'This case cannot be automatically converted to an arrow function. ' + 'We ask you to manually fix this case by using useRef() or createRef() instead. ' + 'Learn more about using refs safely here: ' + 'https://fb.me/react-strict-mode-string-ref', getComponentName(ReactCurrentOwner.current.type), config.ref);
+
+        didWarnAboutStringRefs[componentName] = true;
+      }
+    }
+  }
+}
+/**
+ * Factory method to create a new React element. This no longer adheres to
+ * the class pattern, so do not use new to call it. Also, instanceof check
+ * will not work. Instead test $$typeof field against Symbol.for('react.element') to check
+ * if something is a React Element.
+ *
+ * @param {*} type
+ * @param {*} props
+ * @param {*} key
+ * @param {string|object} ref
+ * @param {*} owner
+ * @param {*} self A *temporary* helper to detect places where `this` is
+ * different from the `owner` when React.createElement is called, so that we
+ * can warn. We want to get rid of owner and replace string `ref`s with arrow
+ * functions, and as long as `this` and owner are the same, there will be no
+ * change in behavior.
+ * @param {*} source An annotation object (added by a transpiler or otherwise)
+ * indicating filename, line number, and/or other information.
+ * @internal
+ */
+
+
+var ReactElement = function (type, key, ref, self, source, owner, props) {
+  var element = {
+    // This tag allows us to uniquely identify this as a React Element
+    $$typeof: REACT_ELEMENT_TYPE,
+    // Built-in properties that belong on the element
+    type: type,
+    key: key,
+    ref: ref,
+    props: props,
+    // Record the component responsible for creating this element.
+    _owner: owner
+  };
+
+  {
+    // The validation flag is currently mutative. We put it on
+    // an external backing store so that we can freeze the whole object.
+    // This can be replaced with a WeakMap once they are implemented in
+    // commonly used development environments.
+    element._store = {}; // To make comparing ReactElements easier for testing purposes, we make
+    // the validation flag non-enumerable (where possible, which should
+    // include every environment we run tests in), so the test framework
+    // ignores it.
+
+    Object.defineProperty(element._store, 'validated', {
+      configurable: false,
+      enumerable: false,
+      writable: true,
+      value: false
+    }); // self and source are DEV only properties.
+
+    Object.defineProperty(element, '_self', {
+      configurable: false,
+      enumerable: false,
+      writable: false,
+      value: self
+    }); // Two elements created in two different places should be considered
+    // equal for testing purposes and therefore we hide it from enumeration.
+
+    Object.defineProperty(element, '_source', {
+      configurable: false,
+      enumerable: false,
+      writable: false,
+      value: source
+    });
+
+    if (Object.freeze) {
+      Object.freeze(element.props);
+      Object.freeze(element);
+    }
+  }
+
+  return element;
+};
+/**
+ * Create and return a new ReactElement of the given type.
+ * See https://reactjs.org/docs/react-api.html#createelement
+ */
+
+function createElement(type, config, children) {
+  var propName; // Reserved names are extracted
+
+  var props = {};
+  var key = null;
+  var ref = null;
+  var self = null;
+  var source = null;
+
+  if (config != null) {
+    if (hasValidRef(config)) {
+      ref = config.ref;
+
+      {
+        warnIfStringRefCannotBeAutoConverted(config);
+      }
+    }
+
+    if (hasValidKey(config)) {
+      key = '' + config.key;
+    }
+
+    self = config.__self === undefined ? null : config.__self;
+    source = config.__source === undefined ? null : config.__source; // Remaining properties are added to a new props object
+
+    for (propName in config) {
+      if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
+        props[propName] = config[propName];
+      }
+    }
+  } // Children can be more than one argument, and those are transferred onto
+  // the newly allocated props object.
+
+
+  var childrenLength = arguments.length - 2;
+
+  if (childrenLength === 1) {
+    props.children = children;
+  } else if (childrenLength > 1) {
+    var childArray = Array(childrenLength);
+
+    for (var i = 0; i < childrenLength; i++) {
+      childArray[i] = arguments[i + 2];
+    }
+
+    {
+      if (Object.freeze) {
+        Object.freeze(childArray);
+      }
+    }
+
+    props.children = childArray;
+  } // Resolve default props
+
+
+  if (type && type.defaultProps) {
+    var defaultProps = type.defaultProps;
+
+    for (propName in defaultProps) {
+      if (props[propName] === undefined) {
+        props[propName] = defaultProps[propName];
+      }
+    }
+  }
+
+  {
+    if (key || ref) {
+      var displayName = typeof type === 'function' ? type.displayName || type.name || 'Unknown' : type;
+
+      if (key) {
+        defineKeyPropWarningGetter(props, displayName);
+      }
+
+      if (ref) {
+        defineRefPropWarningGetter(props, displayName);
+      }
+    }
+  }
+
+  return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
+}
+function cloneAndReplaceKey(oldElement, newKey) {
+  var newElement = ReactElement(oldElement.type, newKey, oldElement.ref, oldElement._self, oldElement._source, oldElement._owner, oldElement.props);
+  return newElement;
+}
+/**
+ * Clone and return a new ReactElement using element as the starting point.
+ * See https://reactjs.org/docs/react-api.html#cloneelement
+ */
+
+function cloneElement(element, config, children) {
+  if (!!(element === null || element === undefined)) {
+    {
+      throw Error( "React.cloneElement(...): The argument must be a React element, but you passed " + element + "." );
+    }
+  }
+
+  var propName; // Original props are copied
+
+  var props = _assign({}, element.props); // Reserved names are extracted
+
+
+  var key = element.key;
+  var ref = element.ref; // Self is preserved since the owner is preserved.
+
+  var self = element._self; // Source is preserved since cloneElement is unlikely to be targeted by a
+  // transpiler, and the original source is probably a better indicator of the
+  // true owner.
+
+  var source = element._source; // Owner will be preserved, unless ref is overridden
+
+  var owner = element._owner;
+
+  if (config != null) {
+    if (hasValidRef(config)) {
+      // Silently steal the ref from the parent.
+      ref = config.ref;
+      owner = ReactCurrentOwner.current;
+    }
+
+    if (hasValidKey(config)) {
+      key = '' + config.key;
+    } // Remaining properties override existing props
+
+
+    var defaultProps;
+
+    if (element.type && element.type.defaultProps) {
+      defaultProps = element.type.defaultProps;
+    }
+
+    for (propName in config) {
+      if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
+        if (config[propName] === undefined && defaultProps !== undefined) {
+          // Resolve default props
+          props[propName] = defaultProps[propName];
+        } else {
+          props[propName] = config[propName];
+        }
+      }
+    }
+  } // Children can be more than one argument, and those are transferred onto
+  // the newly allocated props object.
+
+
+  var childrenLength = arguments.length - 2;
+
+  if (childrenLength === 1) {
+    props.children = children;
+  } else if (childrenLength > 1) {
+    var childArray = Array(childrenLength);
+
+    for (var i = 0; i < childrenLength; i++) {
+      childArray[i] = arguments[i + 2];
+    }
+
+    props.children = childArray;
+  }
+
+  return ReactElement(element.type, key, ref, self, source, owner, props);
+}
+/**
+ * Verifies the object is a ReactElement.
+ * See https://reactjs.org/docs/react-api.html#isvalidelement
+ * @param {?object} object
+ * @return {boolean} True if `object` is a ReactElement.
+ * @final
+ */
+
+function isValidElement(object) {
+  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+}
+
+var SEPARATOR = '.';
+var SUBSEPARATOR = ':';
+/**
+ * Escape and wrap key so it is safe to use as a reactid
+ *
+ * @param {string} key to be escaped.
+ * @return {string} the escaped key.
+ */
+
+function escape(key) {
+  var escapeRegex = /[=:]/g;
+  var escaperLookup = {
+    '=': '=0',
+    ':': '=2'
+  };
+  var escapedString = ('' + key).replace(escapeRegex, function (match) {
+    return escaperLookup[match];
+  });
+  return '$' + escapedString;
+}
+/**
+ * TODO: Test that a single child and an array with one item have the same key
+ * pattern.
+ */
+
+
+var didWarnAboutMaps = false;
+var userProvidedKeyEscapeRegex = /\/+/g;
+
+function escapeUserProvidedKey(text) {
+  return ('' + text).replace(userProvidedKeyEscapeRegex, '$&/');
+}
+
+var POOL_SIZE = 10;
+var traverseContextPool = [];
+
+function getPooledTraverseContext(mapResult, keyPrefix, mapFunction, mapContext) {
+  if (traverseContextPool.length) {
+    var traverseContext = traverseContextPool.pop();
+    traverseContext.result = mapResult;
+    traverseContext.keyPrefix = keyPrefix;
+    traverseContext.func = mapFunction;
+    traverseContext.context = mapContext;
+    traverseContext.count = 0;
+    return traverseContext;
+  } else {
+    return {
+      result: mapResult,
+      keyPrefix: keyPrefix,
+      func: mapFunction,
+      context: mapContext,
+      count: 0
+    };
+  }
+}
+
+function releaseTraverseContext(traverseContext) {
+  traverseContext.result = null;
+  traverseContext.keyPrefix = null;
+  traverseContext.func = null;
+  traverseContext.context = null;
+  traverseContext.count = 0;
+
+  if (traverseContextPool.length < POOL_SIZE) {
+    traverseContextPool.push(traverseContext);
+  }
+}
+/**
+ * @param {?*} children Children tree container.
+ * @param {!string} nameSoFar Name of the key path so far.
+ * @param {!function} callback Callback to invoke with each child found.
+ * @param {?*} traverseContext Used to pass information throughout the traversal
+ * process.
+ * @return {!number} The number of children in this subtree.
+ */
+
+
+function traverseAllChildrenImpl(children, nameSoFar, callback, traverseContext) {
+  var type = typeof children;
+
+  if (type === 'undefined' || type === 'boolean') {
+    // All of the above are perceived as null.
+    children = null;
+  }
+
+  var invokeCallback = false;
+
+  if (children === null) {
+    invokeCallback = true;
+  } else {
+    switch (type) {
+      case 'string':
+      case 'number':
+        invokeCallback = true;
+        break;
+
+      case 'object':
+        switch (children.$$typeof) {
+          case REACT_ELEMENT_TYPE:
+          case REACT_PORTAL_TYPE:
+            invokeCallback = true;
+        }
+
+    }
+  }
+
+  if (invokeCallback) {
+    callback(traverseContext, children, // If it's the only child, treat the name as if it was wrapped in an array
+    // so that it's consistent if the number of children grows.
+    nameSoFar === '' ? SEPARATOR + getComponentKey(children, 0) : nameSoFar);
+    return 1;
+  }
+
+  var child;
+  var nextName;
+  var subtreeCount = 0; // Count of children found in the current subtree.
+
+  var nextNamePrefix = nameSoFar === '' ? SEPARATOR : nameSoFar + SUBSEPARATOR;
+
+  if (Array.isArray(children)) {
+    for (var i = 0; i < children.length; i++) {
+      child = children[i];
+      nextName = nextNamePrefix + getComponentKey(child, i);
+      subtreeCount += traverseAllChildrenImpl(child, nextName, callback, traverseContext);
+    }
+  } else {
+    var iteratorFn = getIteratorFn(children);
+
+    if (typeof iteratorFn === 'function') {
+
+      {
+        // Warn about using Maps as children
+        if (iteratorFn === children.entries) {
+          if (!didWarnAboutMaps) {
+            warn('Using Maps as children is deprecated and will be removed in ' + 'a future major release. Consider converting children to ' + 'an array of keyed ReactElements instead.');
+          }
+
+          didWarnAboutMaps = true;
+        }
+      }
+
+      var iterator = iteratorFn.call(children);
+      var step;
+      var ii = 0;
+
+      while (!(step = iterator.next()).done) {
+        child = step.value;
+        nextName = nextNamePrefix + getComponentKey(child, ii++);
+        subtreeCount += traverseAllChildrenImpl(child, nextName, callback, traverseContext);
+      }
+    } else if (type === 'object') {
+      var addendum = '';
+
+      {
+        addendum = ' If you meant to render a collection of children, use an array ' + 'instead.' + ReactDebugCurrentFrame.getStackAddendum();
+      }
+
+      var childrenString = '' + children;
+
+      {
+        {
+          throw Error( "Objects are not valid as a React child (found: " + (childrenString === '[object Object]' ? 'object with keys {' + Object.keys(children).join(', ') + '}' : childrenString) + ")." + addendum );
+        }
+      }
+    }
+  }
+
+  return subtreeCount;
+}
+/**
+ * Traverses children that are typically specified as `props.children`, but
+ * might also be specified through attributes:
+ *
+ * - `traverseAllChildren(this.props.children, ...)`
+ * - `traverseAllChildren(this.props.leftPanelChildren, ...)`
+ *
+ * The `traverseContext` is an optional argument that is passed through the
+ * entire traversal. It can be used to store accumulations or anything else that
+ * the callback might find relevant.
+ *
+ * @param {?*} children Children tree object.
+ * @param {!function} callback To invoke upon traversing each child.
+ * @param {?*} traverseContext Context for traversal.
+ * @return {!number} The number of children in this subtree.
+ */
+
+
+function traverseAllChildren(children, callback, traverseContext) {
+  if (children == null) {
+    return 0;
+  }
+
+  return traverseAllChildrenImpl(children, '', callback, traverseContext);
+}
+/**
+ * Generate a key string that identifies a component within a set.
+ *
+ * @param {*} component A component that could contain a manual key.
+ * @param {number} index Index that is used if a manual key is not provided.
+ * @return {string}
+ */
+
+
+function getComponentKey(component, index) {
+  // Do some typechecking here since we call this blindly. We want to ensure
+  // that we don't block potential future ES APIs.
+  if (typeof component === 'object' && component !== null && component.key != null) {
+    // Explicit key
+    return escape(component.key);
+  } // Implicit key determined by the index in the set
+
+
+  return index.toString(36);
+}
+
+function forEachSingleChild(bookKeeping, child, name) {
+  var func = bookKeeping.func,
+      context = bookKeeping.context;
+  func.call(context, child, bookKeeping.count++);
+}
+/**
+ * Iterates through children that are typically specified as `props.children`.
+ *
+ * See https://reactjs.org/docs/react-api.html#reactchildrenforeach
+ *
+ * The provided forEachFunc(child, index) will be called for each
+ * leaf child.
+ *
+ * @param {?*} children Children tree container.
+ * @param {function(*, int)} forEachFunc
+ * @param {*} forEachContext Context for forEachContext.
+ */
+
+
+function forEachChildren(children, forEachFunc, forEachContext) {
+  if (children == null) {
+    return children;
+  }
+
+  var traverseContext = getPooledTraverseContext(null, null, forEachFunc, forEachContext);
+  traverseAllChildren(children, forEachSingleChild, traverseContext);
+  releaseTraverseContext(traverseContext);
+}
+
+function mapSingleChildIntoContext(bookKeeping, child, childKey) {
+  var result = bookKeeping.result,
+      keyPrefix = bookKeeping.keyPrefix,
+      func = bookKeeping.func,
+      context = bookKeeping.context;
+  var mappedChild = func.call(context, child, bookKeeping.count++);
+
+  if (Array.isArray(mappedChild)) {
+    mapIntoWithKeyPrefixInternal(mappedChild, result, childKey, function (c) {
+      return c;
+    });
+  } else if (mappedChild != null) {
+    if (isValidElement(mappedChild)) {
+      mappedChild = cloneAndReplaceKey(mappedChild, // Keep both the (mapped) and old keys if they differ, just as
+      // traverseAllChildren used to do for objects as children
+      keyPrefix + (mappedChild.key && (!child || child.key !== mappedChild.key) ? escapeUserProvidedKey(mappedChild.key) + '/' : '') + childKey);
+    }
+
+    result.push(mappedChild);
+  }
+}
+
+function mapIntoWithKeyPrefixInternal(children, array, prefix, func, context) {
+  var escapedPrefix = '';
+
+  if (prefix != null) {
+    escapedPrefix = escapeUserProvidedKey(prefix) + '/';
+  }
+
+  var traverseContext = getPooledTraverseContext(array, escapedPrefix, func, context);
+  traverseAllChildren(children, mapSingleChildIntoContext, traverseContext);
+  releaseTraverseContext(traverseContext);
+}
+/**
+ * Maps children that are typically specified as `props.children`.
+ *
+ * See https://reactjs.org/docs/react-api.html#reactchildrenmap
+ *
+ * The provided mapFunction(child, key, index) will be called for each
+ * leaf child.
+ *
+ * @param {?*} children Children tree container.
+ * @param {function(*, int)} func The map function.
+ * @param {*} context Context for mapFunction.
+ * @return {object} Object containing the ordered map of results.
+ */
+
+
+function mapChildren(children, func, context) {
+  if (children == null) {
+    return children;
+  }
+
+  var result = [];
+  mapIntoWithKeyPrefixInternal(children, result, null, func, context);
+  return result;
+}
+/**
+ * Count the number of children that are typically specified as
+ * `props.children`.
+ *
+ * See https://reactjs.org/docs/react-api.html#reactchildrencount
+ *
+ * @param {?*} children Children tree container.
+ * @return {number} The number of children.
+ */
+
+
+function countChildren(children) {
+  return traverseAllChildren(children, function () {
+    return null;
+  }, null);
+}
+/**
+ * Flatten a children object (typically specified as `props.children`) and
+ * return an array with appropriately re-keyed children.
+ *
+ * See https://reactjs.org/docs/react-api.html#reactchildrentoarray
+ */
+
+
+function toArray(children) {
+  var result = [];
+  mapIntoWithKeyPrefixInternal(children, result, null, function (child) {
+    return child;
+  });
+  return result;
+}
+/**
+ * Returns the first child in a collection of children and verifies that there
+ * is only one child in the collection.
+ *
+ * See https://reactjs.org/docs/react-api.html#reactchildrenonly
+ *
+ * The current implementation of this function assumes that a single child gets
+ * passed without a wrapper, but the purpose of this helper function is to
+ * abstract away the particular structure of children.
+ *
+ * @param {?object} children Child collection structure.
+ * @return {ReactElement} The first and only `ReactElement` contained in the
+ * structure.
+ */
+
+
+function onlyChild(children) {
+  if (!isValidElement(children)) {
+    {
+      throw Error( "React.Children.only expected to receive a single React element child." );
+    }
+  }
+
+  return children;
+}
+
+function createContext(defaultValue, calculateChangedBits) {
+  if (calculateChangedBits === undefined) {
+    calculateChangedBits = null;
+  } else {
+    {
+      if (calculateChangedBits !== null && typeof calculateChangedBits !== 'function') {
+        error('createContext: Expected the optional second argument to be a ' + 'function. Instead received: %s', calculateChangedBits);
+      }
+    }
+  }
+
+  var context = {
+    $$typeof: REACT_CONTEXT_TYPE,
+    _calculateChangedBits: calculateChangedBits,
+    // As a workaround to support multiple concurrent renderers, we categorize
+    // some renderers as primary and others as secondary. We only expect
+    // there to be two concurrent renderers at most: React Native (primary) and
+    // Fabric (secondary); React DOM (primary) and React ART (secondary).
+    // Secondary renderers store their context values on separate fields.
+    _currentValue: defaultValue,
+    _currentValue2: defaultValue,
+    // Used to track how many concurrent renderers this context currently
+    // supports within in a single renderer. Such as parallel server rendering.
+    _threadCount: 0,
+    // These are circular
+    Provider: null,
+    Consumer: null
+  };
+  context.Provider = {
+    $$typeof: REACT_PROVIDER_TYPE,
+    _context: context
+  };
+  var hasWarnedAboutUsingNestedContextConsumers = false;
+  var hasWarnedAboutUsingConsumerProvider = false;
+
+  {
+    // A separate object, but proxies back to the original context object for
+    // backwards compatibility. It has a different $$typeof, so we can properly
+    // warn for the incorrect usage of Context as a Consumer.
+    var Consumer = {
+      $$typeof: REACT_CONTEXT_TYPE,
+      _context: context,
+      _calculateChangedBits: context._calculateChangedBits
+    }; // $FlowFixMe: Flow complains about not setting a value, which is intentional here
+
+    Object.defineProperties(Consumer, {
+      Provider: {
+        get: function () {
+          if (!hasWarnedAboutUsingConsumerProvider) {
+            hasWarnedAboutUsingConsumerProvider = true;
+
+            error('Rendering <Context.Consumer.Provider> is not supported and will be removed in ' + 'a future major release. Did you mean to render <Context.Provider> instead?');
+          }
+
+          return context.Provider;
+        },
+        set: function (_Provider) {
+          context.Provider = _Provider;
+        }
+      },
+      _currentValue: {
+        get: function () {
+          return context._currentValue;
+        },
+        set: function (_currentValue) {
+          context._currentValue = _currentValue;
+        }
+      },
+      _currentValue2: {
+        get: function () {
+          return context._currentValue2;
+        },
+        set: function (_currentValue2) {
+          context._currentValue2 = _currentValue2;
+        }
+      },
+      _threadCount: {
+        get: function () {
+          return context._threadCount;
+        },
+        set: function (_threadCount) {
+          context._threadCount = _threadCount;
+        }
+      },
+      Consumer: {
+        get: function () {
+          if (!hasWarnedAboutUsingNestedContextConsumers) {
+            hasWarnedAboutUsingNestedContextConsumers = true;
+
+            error('Rendering <Context.Consumer.Consumer> is not supported and will be removed in ' + 'a future major release. Did you mean to render <Context.Consumer> instead?');
+          }
+
+          return context.Consumer;
+        }
+      }
+    }); // $FlowFixMe: Flow complains about missing properties because it doesn't understand defineProperty
+
+    context.Consumer = Consumer;
+  }
+
+  {
+    context._currentRenderer = null;
+    context._currentRenderer2 = null;
+  }
+
+  return context;
+}
+
+function lazy(ctor) {
+  var lazyType = {
+    $$typeof: REACT_LAZY_TYPE,
+    _ctor: ctor,
+    // React uses these fields to store the result.
+    _status: -1,
+    _result: null
+  };
+
+  {
+    // In production, this would just set it on the object.
+    var defaultProps;
+    var propTypes;
+    Object.defineProperties(lazyType, {
+      defaultProps: {
+        configurable: true,
+        get: function () {
+          return defaultProps;
+        },
+        set: function (newDefaultProps) {
+          error('React.lazy(...): It is not supported to assign `defaultProps` to ' + 'a lazy component import. Either specify them where the component ' + 'is defined, or create a wrapping component around it.');
+
+          defaultProps = newDefaultProps; // Match production behavior more closely:
+
+          Object.defineProperty(lazyType, 'defaultProps', {
+            enumerable: true
+          });
+        }
+      },
+      propTypes: {
+        configurable: true,
+        get: function () {
+          return propTypes;
+        },
+        set: function (newPropTypes) {
+          error('React.lazy(...): It is not supported to assign `propTypes` to ' + 'a lazy component import. Either specify them where the component ' + 'is defined, or create a wrapping component around it.');
+
+          propTypes = newPropTypes; // Match production behavior more closely:
+
+          Object.defineProperty(lazyType, 'propTypes', {
+            enumerable: true
+          });
+        }
+      }
+    });
+  }
+
+  return lazyType;
+}
+
+function forwardRef(render) {
+  {
+    if (render != null && render.$$typeof === REACT_MEMO_TYPE) {
+      error('forwardRef requires a render function but received a `memo` ' + 'component. Instead of forwardRef(memo(...)), use ' + 'memo(forwardRef(...)).');
+    } else if (typeof render !== 'function') {
+      error('forwardRef requires a render function but was given %s.', render === null ? 'null' : typeof render);
+    } else {
+      if (render.length !== 0 && render.length !== 2) {
+        error('forwardRef render functions accept exactly two parameters: props and ref. %s', render.length === 1 ? 'Did you forget to use the ref parameter?' : 'Any additional parameter will be undefined.');
+      }
+    }
+
+    if (render != null) {
+      if (render.defaultProps != null || render.propTypes != null) {
+        error('forwardRef render functions do not support propTypes or defaultProps. ' + 'Did you accidentally pass a React component?');
+      }
+    }
+  }
+
+  return {
+    $$typeof: REACT_FORWARD_REF_TYPE,
+    render: render
+  };
+}
+
+function isValidElementType(type) {
+  return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
+}
+
+function memo(type, compare) {
+  {
+    if (!isValidElementType(type)) {
+      error('memo: The first argument must be a component. Instead ' + 'received: %s', type === null ? 'null' : typeof type);
+    }
+  }
+
+  return {
+    $$typeof: REACT_MEMO_TYPE,
+    type: type,
+    compare: compare === undefined ? null : compare
+  };
+}
+
+function resolveDispatcher() {
+  var dispatcher = ReactCurrentDispatcher.current;
+
+  if (!(dispatcher !== null)) {
+    {
+      throw Error( "Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:\n1. You might have mismatching versions of React and the renderer (such as React DOM)\n2. You might be breaking the Rules of Hooks\n3. You might have more than one copy of React in the same app\nSee https://fb.me/react-invalid-hook-call for tips about how to debug and fix this problem." );
+    }
+  }
+
+  return dispatcher;
+}
+
+function useContext(Context, unstable_observedBits) {
+  var dispatcher = resolveDispatcher();
+
+  {
+    if (unstable_observedBits !== undefined) {
+      error('useContext() second argument is reserved for future ' + 'use in React. Passing it is not supported. ' + 'You passed: %s.%s', unstable_observedBits, typeof unstable_observedBits === 'number' && Array.isArray(arguments[2]) ? '\n\nDid you call array.map(useContext)? ' + 'Calling Hooks inside a loop is not supported. ' + 'Learn more at https://fb.me/rules-of-hooks' : '');
+    } // TODO: add a more generic warning for invalid values.
+
+
+    if (Context._context !== undefined) {
+      var realContext = Context._context; // Don't deduplicate because this legitimately causes bugs
+      // and nobody should be using this in existing code.
+
+      if (realContext.Consumer === Context) {
+        error('Calling useContext(Context.Consumer) is not supported, may cause bugs, and will be ' + 'removed in a future major release. Did you mean to call useContext(Context) instead?');
+      } else if (realContext.Provider === Context) {
+        error('Calling useContext(Context.Provider) is not supported. ' + 'Did you mean to call useContext(Context) instead?');
+      }
+    }
+  }
+
+  return dispatcher.useContext(Context, unstable_observedBits);
+}
+function useState(initialState) {
+  var dispatcher = resolveDispatcher();
+  return dispatcher.useState(initialState);
+}
+function useReducer(reducer, initialArg, init) {
+  var dispatcher = resolveDispatcher();
+  return dispatcher.useReducer(reducer, initialArg, init);
+}
+function useRef(initialValue) {
+  var dispatcher = resolveDispatcher();
+  return dispatcher.useRef(initialValue);
+}
+function useEffect(create, deps) {
+  var dispatcher = resolveDispatcher();
+  return dispatcher.useEffect(create, deps);
+}
+function useLayoutEffect(create, deps) {
+  var dispatcher = resolveDispatcher();
+  return dispatcher.useLayoutEffect(create, deps);
+}
+function useCallback(callback, deps) {
+  var dispatcher = resolveDispatcher();
+  return dispatcher.useCallback(callback, deps);
+}
+function useMemo(create, deps) {
+  var dispatcher = resolveDispatcher();
+  return dispatcher.useMemo(create, deps);
+}
+function useImperativeHandle(ref, create, deps) {
+  var dispatcher = resolveDispatcher();
+  return dispatcher.useImperativeHandle(ref, create, deps);
+}
+function useDebugValue(value, formatterFn) {
+  {
+    var dispatcher = resolveDispatcher();
+    return dispatcher.useDebugValue(value, formatterFn);
+  }
+}
+
+var propTypesMisspellWarningShown;
+
+{
+  propTypesMisspellWarningShown = false;
+}
+
+function getDeclarationErrorAddendum() {
+  if (ReactCurrentOwner.current) {
+    var name = getComponentName(ReactCurrentOwner.current.type);
+
+    if (name) {
+      return '\n\nCheck the render method of `' + name + '`.';
+    }
+  }
+
+  return '';
+}
+
+function getSourceInfoErrorAddendum(source) {
+  if (source !== undefined) {
+    var fileName = source.fileName.replace(/^.*[\\\/]/, '');
+    var lineNumber = source.lineNumber;
+    return '\n\nCheck your code at ' + fileName + ':' + lineNumber + '.';
+  }
+
+  return '';
+}
+
+function getSourceInfoErrorAddendumForProps(elementProps) {
+  if (elementProps !== null && elementProps !== undefined) {
+    return getSourceInfoErrorAddendum(elementProps.__source);
+  }
+
+  return '';
+}
+/**
+ * Warn if there's no key explicitly set on dynamic arrays of children or
+ * object keys are not valid. This allows us to keep track of children between
+ * updates.
+ */
+
+
+var ownerHasKeyUseWarning = {};
+
+function getCurrentComponentErrorInfo(parentType) {
+  var info = getDeclarationErrorAddendum();
+
+  if (!info) {
+    var parentName = typeof parentType === 'string' ? parentType : parentType.displayName || parentType.name;
+
+    if (parentName) {
+      info = "\n\nCheck the top-level render call using <" + parentName + ">.";
+    }
+  }
+
+  return info;
+}
+/**
+ * Warn if the element doesn't have an explicit key assigned to it.
+ * This element is in an array. The array could grow and shrink or be
+ * reordered. All children that haven't already been validated are required to
+ * have a "key" property assigned to it. Error statuses are cached so a warning
+ * will only be shown once.
+ *
+ * @internal
+ * @param {ReactElement} element Element that requires a key.
+ * @param {*} parentType element's parent's type.
+ */
+
+
+function validateExplicitKey(element, parentType) {
+  if (!element._store || element._store.validated || element.key != null) {
+    return;
+  }
+
+  element._store.validated = true;
+  var currentComponentErrorInfo = getCurrentComponentErrorInfo(parentType);
+
+  if (ownerHasKeyUseWarning[currentComponentErrorInfo]) {
+    return;
+  }
+
+  ownerHasKeyUseWarning[currentComponentErrorInfo] = true; // Usually the current owner is the offender, but if it accepts children as a
+  // property, it may be the creator of the child that's responsible for
+  // assigning it a key.
+
+  var childOwner = '';
+
+  if (element && element._owner && element._owner !== ReactCurrentOwner.current) {
+    // Give the component that originally created this child.
+    childOwner = " It was passed a child from " + getComponentName(element._owner.type) + ".";
+  }
+
+  setCurrentlyValidatingElement(element);
+
+  {
+    error('Each child in a list should have a unique "key" prop.' + '%s%s See https://fb.me/react-warning-keys for more information.', currentComponentErrorInfo, childOwner);
+  }
+
+  setCurrentlyValidatingElement(null);
+}
+/**
+ * Ensure that every element either is passed in a static location, in an
+ * array with an explicit keys property defined, or in an object literal
+ * with valid key property.
+ *
+ * @internal
+ * @param {ReactNode} node Statically passed child of any type.
+ * @param {*} parentType node's parent's type.
+ */
+
+
+function validateChildKeys(node, parentType) {
+  if (typeof node !== 'object') {
+    return;
+  }
+
+  if (Array.isArray(node)) {
+    for (var i = 0; i < node.length; i++) {
+      var child = node[i];
+
+      if (isValidElement(child)) {
+        validateExplicitKey(child, parentType);
+      }
+    }
+  } else if (isValidElement(node)) {
+    // This element was passed in a valid location.
+    if (node._store) {
+      node._store.validated = true;
+    }
+  } else if (node) {
+    var iteratorFn = getIteratorFn(node);
+
+    if (typeof iteratorFn === 'function') {
+      // Entry iterators used to provide implicit keys,
+      // but now we print a separate warning for them later.
+      if (iteratorFn !== node.entries) {
+        var iterator = iteratorFn.call(node);
+        var step;
+
+        while (!(step = iterator.next()).done) {
+          if (isValidElement(step.value)) {
+            validateExplicitKey(step.value, parentType);
+          }
+        }
+      }
+    }
+  }
+}
+/**
+ * Given an element, validate that its props follow the propTypes definition,
+ * provided by the type.
+ *
+ * @param {ReactElement} element
+ */
+
+
+function validatePropTypes(element) {
+  {
+    var type = element.type;
+
+    if (type === null || type === undefined || typeof type === 'string') {
+      return;
+    }
+
+    var name = getComponentName(type);
+    var propTypes;
+
+    if (typeof type === 'function') {
+      propTypes = type.propTypes;
+    } else if (typeof type === 'object' && (type.$$typeof === REACT_FORWARD_REF_TYPE || // Note: Memo only checks outer props here.
+    // Inner props are checked in the reconciler.
+    type.$$typeof === REACT_MEMO_TYPE)) {
+      propTypes = type.propTypes;
+    } else {
+      return;
+    }
+
+    if (propTypes) {
+      setCurrentlyValidatingElement(element);
+      checkPropTypes(propTypes, element.props, 'prop', name, ReactDebugCurrentFrame.getStackAddendum);
+      setCurrentlyValidatingElement(null);
+    } else if (type.PropTypes !== undefined && !propTypesMisspellWarningShown) {
+      propTypesMisspellWarningShown = true;
+
+      error('Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?', name || 'Unknown');
+    }
+
+    if (typeof type.getDefaultProps === 'function' && !type.getDefaultProps.isReactClassApproved) {
+      error('getDefaultProps is only used on classic React.createClass ' + 'definitions. Use a static property named `defaultProps` instead.');
+    }
+  }
+}
+/**
+ * Given a fragment, validate that it can only be provided with fragment props
+ * @param {ReactElement} fragment
+ */
+
+
+function validateFragmentProps(fragment) {
+  {
+    setCurrentlyValidatingElement(fragment);
+    var keys = Object.keys(fragment.props);
+
+    for (var i = 0; i < keys.length; i++) {
+      var key = keys[i];
+
+      if (key !== 'children' && key !== 'key') {
+        error('Invalid prop `%s` supplied to `React.Fragment`. ' + 'React.Fragment can only have `key` and `children` props.', key);
+
+        break;
+      }
+    }
+
+    if (fragment.ref !== null) {
+      error('Invalid attribute `ref` supplied to `React.Fragment`.');
+    }
+
+    setCurrentlyValidatingElement(null);
+  }
+}
+function createElementWithValidation(type, props, children) {
+  var validType = isValidElementType(type); // We warn in this case but don't throw. We expect the element creation to
+  // succeed and there will likely be errors in render.
+
+  if (!validType) {
+    var info = '';
+
+    if (type === undefined || typeof type === 'object' && type !== null && Object.keys(type).length === 0) {
+      info += ' You likely forgot to export your component from the file ' + "it's defined in, or you might have mixed up default and named imports.";
+    }
+
+    var sourceInfo = getSourceInfoErrorAddendumForProps(props);
+
+    if (sourceInfo) {
+      info += sourceInfo;
+    } else {
+      info += getDeclarationErrorAddendum();
+    }
+
+    var typeString;
+
+    if (type === null) {
+      typeString = 'null';
+    } else if (Array.isArray(type)) {
+      typeString = 'array';
+    } else if (type !== undefined && type.$$typeof === REACT_ELEMENT_TYPE) {
+      typeString = "<" + (getComponentName(type.type) || 'Unknown') + " />";
+      info = ' Did you accidentally export a JSX literal instead of a component?';
+    } else {
+      typeString = typeof type;
+    }
+
+    {
+      error('React.createElement: type is invalid -- expected a string (for ' + 'built-in components) or a class/function (for composite ' + 'components) but got: %s.%s', typeString, info);
+    }
+  }
+
+  var element = createElement.apply(this, arguments); // The result can be nullish if a mock or a custom function is used.
+  // TODO: Drop this when these are no longer allowed as the type argument.
+
+  if (element == null) {
+    return element;
+  } // Skip key warning if the type isn't valid since our key validation logic
+  // doesn't expect a non-string/function type and can throw confusing errors.
+  // We don't want exception behavior to differ between dev and prod.
+  // (Rendering will throw with a helpful message and as soon as the type is
+  // fixed, the key warnings will appear.)
+
+
+  if (validType) {
+    for (var i = 2; i < arguments.length; i++) {
+      validateChildKeys(arguments[i], type);
+    }
+  }
+
+  if (type === REACT_FRAGMENT_TYPE) {
+    validateFragmentProps(element);
+  } else {
+    validatePropTypes(element);
+  }
+
+  return element;
+}
+var didWarnAboutDeprecatedCreateFactory = false;
+function createFactoryWithValidation(type) {
+  var validatedFactory = createElementWithValidation.bind(null, type);
+  validatedFactory.type = type;
+
+  {
+    if (!didWarnAboutDeprecatedCreateFactory) {
+      didWarnAboutDeprecatedCreateFactory = true;
+
+      warn('React.createFactory() is deprecated and will be removed in ' + 'a future major release. Consider using JSX ' + 'or use React.createElement() directly instead.');
+    } // Legacy hook: remove it
+
+
+    Object.defineProperty(validatedFactory, 'type', {
+      enumerable: false,
+      get: function () {
+        warn('Factory.type is deprecated. Access the class directly ' + 'before passing it to createFactory.');
+
+        Object.defineProperty(this, 'type', {
+          value: type
+        });
+        return type;
+      }
+    });
+  }
+
+  return validatedFactory;
+}
+function cloneElementWithValidation(element, props, children) {
+  var newElement = cloneElement.apply(this, arguments);
+
+  for (var i = 2; i < arguments.length; i++) {
+    validateChildKeys(arguments[i], newElement.type);
+  }
+
+  validatePropTypes(newElement);
+  return newElement;
+}
+
+{
+
+  try {
+    var frozenObject = Object.freeze({});
+    var testMap = new Map([[frozenObject, null]]);
+    var testSet = new Set([frozenObject]); // This is necessary for Rollup to not consider these unused.
+    // https://github.com/rollup/rollup/issues/1771
+    // TODO: we can remove these if Rollup fixes the bug.
+
+    testMap.set(0, 0);
+    testSet.add(0);
+  } catch (e) {
+  }
+}
+
+var createElement$1 =  createElementWithValidation ;
+var cloneElement$1 =  cloneElementWithValidation ;
+var createFactory =  createFactoryWithValidation ;
+var Children = {
+  map: mapChildren,
+  forEach: forEachChildren,
+  count: countChildren,
+  toArray: toArray,
+  only: onlyChild
+};
+
+exports.Children = Children;
+exports.Component = Component;
+exports.Fragment = REACT_FRAGMENT_TYPE;
+exports.Profiler = REACT_PROFILER_TYPE;
+exports.PureComponent = PureComponent;
+exports.StrictMode = REACT_STRICT_MODE_TYPE;
+exports.Suspense = REACT_SUSPENSE_TYPE;
+exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactSharedInternals;
+exports.cloneElement = cloneElement$1;
+exports.createContext = createContext;
+exports.createElement = createElement$1;
+exports.createFactory = createFactory;
+exports.createRef = createRef;
+exports.forwardRef = forwardRef;
+exports.isValidElement = isValidElement;
+exports.lazy = lazy;
+exports.memo = memo;
+exports.useCallback = useCallback;
+exports.useContext = useContext;
+exports.useDebugValue = useDebugValue;
+exports.useEffect = useEffect;
+exports.useImperativeHandle = useImperativeHandle;
+exports.useLayoutEffect = useLayoutEffect;
+exports.useMemo = useMemo;
+exports.useReducer = useReducer;
+exports.useRef = useRef;
+exports.useState = useState;
+exports.version = ReactVersion;
+  })();
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/react-images-upload/node_modules/react/index.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/react-images-upload/node_modules/react/index.js ***!
+  \**********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+if (false) {} else {
+  module.exports = __webpack_require__(/*! ./cjs/react.development.js */ "./node_modules/react-images-upload/node_modules/react/cjs/react.development.js");
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/react-input-autosize/lib/AutosizeInput.js":
 /*!****************************************************************!*\
   !*** ./node_modules/react-input-autosize/lib/AutosizeInput.js ***!
@@ -97630,6 +101602,315 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/scheduler-tracing.development.js */ "./node_modules/scheduler/cjs/scheduler-tracing.development.js");
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/react-images-upload/index.css":
+/*!****************************************************!*\
+  !*** ./node_modules/react-images-upload/index.css ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_index_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./index.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./node_modules/react-images-upload/index.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_index_css__WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_index_css__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var isOldIE = function isOldIE() {
+  var memo;
+  return function memorize() {
+    if (typeof memo === 'undefined') {
+      // Test for IE <= 9 as proposed by Browserhacks
+      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+      // Tests for existence of standard globals is to allow style-loader
+      // to operate correctly into non-standard environments
+      // @see https://github.com/webpack-contrib/style-loader/issues/177
+      memo = Boolean(window && document && document.all && !window.atob);
+    }
+
+    return memo;
+  };
+}();
+
+var getTarget = function getTarget() {
+  var memo = {};
+  return function memorize(target) {
+    if (typeof memo[target] === 'undefined') {
+      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
+
+      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+        try {
+          // This will throw an exception if access to iframe is blocked
+          // due to cross-origin restrictions
+          styleTarget = styleTarget.contentDocument.head;
+        } catch (e) {
+          // istanbul ignore next
+          styleTarget = null;
+        }
+      }
+
+      memo[target] = styleTarget;
+    }
+
+    return memo[target];
+  };
+}();
+
+var stylesInDom = [];
+
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+
+  for (var i = 0; i < stylesInDom.length; i++) {
+    if (stylesInDom[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+
+  return result;
+}
+
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var index = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3]
+    };
+
+    if (index !== -1) {
+      stylesInDom[index].references++;
+      stylesInDom[index].updater(obj);
+    } else {
+      stylesInDom.push({
+        identifier: identifier,
+        updater: addStyle(obj, options),
+        references: 1
+      });
+    }
+
+    identifiers.push(identifier);
+  }
+
+  return identifiers;
+}
+
+function insertStyleElement(options) {
+  var style = document.createElement('style');
+  var attributes = options.attributes || {};
+
+  if (typeof attributes.nonce === 'undefined') {
+    var nonce =  true ? __webpack_require__.nc : 0;
+
+    if (nonce) {
+      attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(attributes).forEach(function (key) {
+    style.setAttribute(key, attributes[key]);
+  });
+
+  if (typeof options.insert === 'function') {
+    options.insert(style);
+  } else {
+    var target = getTarget(options.insert || 'head');
+
+    if (!target) {
+      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+    }
+
+    target.appendChild(style);
+  }
+
+  return style;
+}
+
+function removeStyleElement(style) {
+  // istanbul ignore if
+  if (style.parentNode === null) {
+    return false;
+  }
+
+  style.parentNode.removeChild(style);
+}
+/* istanbul ignore next  */
+
+
+var replaceText = function replaceText() {
+  var textStore = [];
+  return function replace(index, replacement) {
+    textStore[index] = replacement;
+    return textStore.filter(Boolean).join('\n');
+  };
+}();
+
+function applyToSingletonTag(style, index, remove, obj) {
+  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
+
+  /* istanbul ignore if  */
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = replaceText(index, css);
+  } else {
+    var cssNode = document.createTextNode(css);
+    var childNodes = style.childNodes;
+
+    if (childNodes[index]) {
+      style.removeChild(childNodes[index]);
+    }
+
+    if (childNodes.length) {
+      style.insertBefore(cssNode, childNodes[index]);
+    } else {
+      style.appendChild(cssNode);
+    }
+  }
+}
+
+function applyToTag(style, options, obj) {
+  var css = obj.css;
+  var media = obj.media;
+  var sourceMap = obj.sourceMap;
+
+  if (media) {
+    style.setAttribute('media', media);
+  } else {
+    style.removeAttribute('media');
+  }
+
+  if (sourceMap && typeof btoa !== 'undefined') {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  } // For old IE
+
+  /* istanbul ignore if  */
+
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    while (style.firstChild) {
+      style.removeChild(style.firstChild);
+    }
+
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var singleton = null;
+var singletonCounter = 0;
+
+function addStyle(obj, options) {
+  var style;
+  var update;
+  var remove;
+
+  if (options.singleton) {
+    var styleIndex = singletonCounter++;
+    style = singleton || (singleton = insertStyleElement(options));
+    update = applyToSingletonTag.bind(null, style, styleIndex, false);
+    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+  } else {
+    style = insertStyleElement(options);
+    update = applyToTag.bind(null, style, options);
+
+    remove = function remove() {
+      removeStyleElement(style);
+    };
+  }
+
+  update(obj);
+  return function updateStyle(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
+        return;
+      }
+
+      update(obj = newObj);
+    } else {
+      remove();
+    }
+  };
+}
+
+module.exports = function (list, options) {
+  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+  // tags it will allow on a page
+
+  if (!options.singleton && typeof options.singleton !== 'boolean') {
+    options.singleton = isOldIE();
+  }
+
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
+
+    if (Object.prototype.toString.call(newList) !== '[object Array]') {
+      return;
+    }
+
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDom[index].references--;
+    }
+
+    var newLastIdentifiers = modulesToDom(newList, options);
+
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+
+      var _index = getIndexByIdentifier(_identifier);
+
+      if (stylesInDom[_index].references === 0) {
+        stylesInDom[_index].updater();
+
+        stylesInDom.splice(_index, 1);
+      }
+    }
+
+    lastIdentifiers = newLastIdentifiers;
+  };
+};
 
 /***/ }),
 
