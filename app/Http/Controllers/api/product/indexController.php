@@ -21,6 +21,12 @@ class indexController extends Controller
      */
     public function index()
     {
+        $user = request()->user();
+        $product = Product::where('userId', $user->id)->get();
+        return response()->json([
+            'success' => true,
+            'data' => ['user' => $user, 'product' => $product]
+        ]);
     }
 
     /**
@@ -123,6 +129,44 @@ class indexController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = request()->user();
+        $product = Product::where([
+            ['id', $id],
+            ['userId', $user->id]
+        ])->first();
+
+        if ($product) {
+            $productImage = ProductImage::where('productId', $product->id)->get();
+            $productProperty = ProductProperty::where('productId', $product->id)->get();
+
+            foreach ($productImage as $item) {
+                try {
+                    unlink(public_path($item->path));
+                    ProductImage::where('id', $item->id)->delete();
+                } catch (\Throwable $th) {
+                    //throw $th;
+                }
+            }
+
+            foreach ($productProperty as $item) {
+                try {
+                    ProductProperty::where('id', $item->id)->delete();
+                } catch (\Throwable $th) {
+                    //throw $th;
+                }
+            }
+
+            $product->delete();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Ürün Başarıyla Silindi!'
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Ürün Silinirken Bir Hata Oluştu!'
+            ]);
+        }
     }
 }

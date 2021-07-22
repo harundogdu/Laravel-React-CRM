@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Layout from "../../Components/Layout/front.layout";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import CustomInput from "../../Components/Custom/CustomInput";
+import CustomInput from "../../Components/Form/CustomInput";
 import Select from "react-select";
 import axios from "axios";
 import ImageUploader from "react-images-upload";

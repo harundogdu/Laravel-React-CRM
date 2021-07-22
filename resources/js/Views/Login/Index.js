@@ -20,36 +20,40 @@ const Login = (props) => {
 
     const handleSubmit = (values) => {
         axios
-            .post("/api/auth/login", { ...values })
-            .then((response) => {
-                console.log(response);
-                if (response.data.success) {
+            .post(`/api/auth/login`, { ...values })
+            .then((res) => {
+                if (res.data.success) {
                     const userData = {
-                        id: response.data.id,
-                        name: response.data.name,
-                        email: response.data.email,
-                        access_token: response.data.access_token,
+                        id: res.data.id,
+                        name: res.data.name,
+                        email: res.data.email,
+                        access_token: res.data.access_token,
                     };
                     const appState = {
                         isLoggedIn: true,
                         user: userData,
                     };
-                    /* console.log(response); */
                     props.AuthStore.saveToken(appState);
-                    //props.history.push("/");
-                    window.location.reload("/");
+                    //props.history.push('/');
+                    window.location.reload();
                 } else {
-                    alert("Giriş Yapmadınız!");
+                    alert("Giriş Yapamadınız");
                 }
             })
             .catch((error) => {
                 if (error.response) {
                     let err = error.response.data;
-                    setErrors(err.errors);
+                    if (err.errors) {
+                        setErrors(err.errors);
+                    } else {
+                        setError(error.response.data.message);
+                    }
+                    //alert(err.errors)
                 } else if (error.request) {
-                    alert(error);
+                    let err = error.request;
+                    setError(err);
                 } else {
-                    alert(error.message);
+                    setError(error.message);
                 }
             });
     };
