@@ -8,10 +8,12 @@ import CustomInput from "../../Components/Custom/CustomInput";
 import Select from "react-select";
 import axios from "axios";
 import ImageUploader from "react-images-upload";
+import CKEditor from "ckeditor4-react";
 
 const Index = (props) => {
     const [category, setCategories] = useState([]);
     const [pictures, setPictures] = useState([]);
+    const [property, setProperty] = useState([]);
 
     useEffect(() => {
         axios
@@ -29,6 +31,21 @@ const Index = (props) => {
 
     const handleSubmit = () => {};
 
+    const newProperty = () => {
+        setProperty([...property, { property: "", value: "" }]);
+    };
+
+    const removeProperty = (index) => {
+        const oldProperty = property;
+        oldProperty.splice(index, 1);
+        setProperty([...oldProperty]);
+    };
+
+    const changeTextInput = (event, index) => {
+        property[index][event.target.name] = event.target.value;
+        setProperty([...property]);
+    };
+    console.log(property);
     return (
         <Layout>
             <Formik
@@ -218,7 +235,7 @@ const Index = (props) => {
 
                         <div className="row my-3">
                             <div className="col-md-12">
-                                <label>Resim Ekle</label>
+                                <label>Ürün Fotoğrafı</label>
                                 <ImageUploader
                                     fileTypeError="Desteklenmeyen format"
                                     fileSizeError="Dosya çok büyük"
@@ -241,20 +258,81 @@ const Index = (props) => {
 
                         <div className="row my-3">
                             <div className="col-md-12">
-                                <CustomInput
-                                    title="Açıklama"
-                                    placeholder="Açıklama"
-                                    value={values.description}
-                                    handleBlur={handleBlur("description")}
-                                    handleChange={handleChange("description")}
+                                <label>Ürün Açıklaması</label>
+                                <CKEditor
+                                    data={values.description}
+                                    onChange={(evt) => {
+                                        const data = evt.editor.getData();
+                                        setFieldValue("description", data);
+                                    }}
                                 />
+                            </div>
+                        </div>
+
+                        <div className="row my-3">
+                            <div className="col-md-12">
+                                <button
+                                    onClick={newProperty}
+                                    className="btn btn-dark w-5"
+                                >
+                                    Yeni Özellik Ekle
+                                </button>
+
+                                {/* items */}
+
+                                {property.map((item, index) => (
+                                    <div key={index} className="row my-3">
+                                        <div className="col-md-5">
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="Özellik ismi"
+                                                name="property"
+                                                value={item.property}
+                                                onChange={(event) =>
+                                                    changeTextInput(
+                                                        event,
+                                                        index
+                                                    )
+                                                }
+                                            />
+                                        </div>
+                                        <div className="col-md-5">
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="Özellik Değeri"
+                                                name="value"
+                                                value={item.value}
+                                                onChange={(event) =>
+                                                    changeTextInput(
+                                                        event,
+                                                        index
+                                                    )
+                                                }
+                                            />
+                                        </div>
+                                        <div className="col-md-1">
+                                            <button
+                                                onClick={() =>
+                                                    removeProperty(index)
+                                                }
+                                                className="btn btn-dark"
+                                            >
+                                                x
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
+
+                                {/* items end */}
                             </div>
                         </div>
 
                         <button
                             onClick={handleSubmit}
                             disabled={isSubmitting || !isValid}
-                            className="w-100 btn btn-lg btn-primary mb-2"
+                            className="w-100 btn btn-primary mb-2"
                             type="submit"
                         >
                             Ürünü Ekle
