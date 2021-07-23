@@ -13,6 +13,10 @@ import ProductEdit from "./Views/Product/edit";
 import CategoryIndex from "./Views/Category/index";
 import CategoryCreate from "./Views/Category/create";
 import CategoryEdit from "./Views/Category/edit";
+/* Hesaplar */
+import AccountIndex from "./Views/Account/index";
+import AccountCreate from "./Views/Account/create";
+import AccountEdit from "./Views/Account/edit";
 
 const Main = () => (
     <Switch>
@@ -27,6 +31,10 @@ const Main = () => (
         <PrivateRoute exact path="/kategoriler" component={CategoryIndex} />
         <PrivateRoute path="/kategori/ekle" component={CategoryCreate} />
         <PrivateRoute path="/kategori/duzenle/:id" component={CategoryEdit} />
+        {/* Hesaplar */}
+        <PrivateRoute exact path="/hesaplar" component={AccountIndex} />
+        <PrivateRoute path="/hesap/ekle" component={AccountCreate} />
+        <PrivateRoute path="/hesap/duzenle/:id" component={AccountEdit} />
     </Switch>
 );
 
