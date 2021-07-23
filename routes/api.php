@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\category\indexController as CategoryIndexController;
 use App\Http\Controllers\api\product\indexController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
@@ -29,4 +30,5 @@ Route::group([
     Route::post('logout',[AuthController::class,'logout']);
     Route::post('/authenticate',[AuthController::class,'authenticate']);
     Route::resource('product', indexController::class);
+    Route::resource('category', CategoryIndexController::class);
 });

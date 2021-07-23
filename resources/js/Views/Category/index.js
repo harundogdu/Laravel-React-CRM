@@ -1,13 +1,12 @@
-import React, { useEffect ,useState } from "react";
-import axios from "axios";
-import { inject, observer } from "mobx-react";
+import { useEffect, useState } from "react";
 import Layout from "../../Components/Layout/front.layout";
 import DataTable from "react-data-table-component";
+import { inject, observer } from "mobx-react";
 import SubHeaderComponent from "../../Components/Form/SubHeaderComponent";
-import ExpandableComponent from "../../Components/Form/ExpandableComponent";
+import axios from "axios";
 import swal from "sweetalert";
 
-const Index = (props) => {
+const CategoryIndex = (props) => {
     const [data, setData] = useState([]);
     const [filter, setFilter] = useState({
         filteredData: [],
@@ -18,14 +17,14 @@ const Index = (props) => {
 
     useEffect(() => {
         axios
-            .get("api/product", {
+            .get("api/category", {
                 headers: {
                     Authorization:
                         "Bearer " + props.AuthStore.appState.user.access_token,
                 },
             })
             .then((response) => {
-                setData(response.data.data.product);
+                setData(response.data.category);
             })
             .catch((e) => {
                 console.log(e);
@@ -37,18 +36,8 @@ const Index = (props) => {
         if (filterText != "") {
             const filteredItems = data.filter(
                 (item) =>
-                    (item.name &&
-                        item.name
-                            .toLowerCase()
-                            .includes(filterText.toLowerCase())) ||
-                    (item.modelCode &&
-                        item.modelCode
-                            .toLowerCase()
-                            .includes(filterText.toLowerCase())) ||
-                    (item.barcode &&
-                        item.barcode
-                            .toLowerCase()
-                            .includes(filterText.toLowerCase()))
+                    item.name &&
+                    item.name.toLowerCase().includes(filterText.toLowerCase())
             );
             setFilter({
                 filteredData: filteredItems,
@@ -75,7 +64,7 @@ const Index = (props) => {
             .then((res) => {
                 if (res) {
                     axios
-                        .delete(`api/product/${item.id}`, {
+                        .delete(`api/category/${item.id}`, {
                             headers: {
                                 Authorization:
                                     "Bearer " +
@@ -115,39 +104,21 @@ const Index = (props) => {
                         <DataTable
                             columns={[
                                 {
-                                    name: "Model Kodu",
-                                    selector: (row) => `${row.modelCode}`,
-                                    sortable: true,
-                                },
-                                {
-                                    name: "Ürün Adı",
+                                    name: "Kategori Adı",
                                     selector: (row) => `${row.name}`,
                                     sortable: true,
-                                },
-                                {
-                                    name: "Barkod",
-                                    selector: (row) => `${row.barcode}`,
-                                    sortable: true,
-                                },
-                                {
-                                    name: "Stok",
-                                    selector: (row) => `${row.stock}`,
-                                    sortable: true,
-                                },
-                                {
-                                    name: "Satış Fiyatı",
-                                    selector: (row) => `${row.sellingPrice}`,
-                                    sortable: true,
+                                    center: true,
                                 },
                                 {
                                     name: "Eylemler",
                                     sortable: true,
+                                    right: true,
                                     cell: (item) => (
                                         <div>
                                             <button
                                                 onClick={() =>
                                                     props.history.push({
-                                                        pathname: `/urunler/duzenle/${item.id}`,
+                                                        pathname: `/kategori/duzenle/${item.id}`,
                                                     })
                                                 }
                                                 className="btn btn-secondary mx-1"
@@ -169,27 +140,27 @@ const Index = (props) => {
                             hover={true}
                             fixedHeader
                             pagination
-                            expandableRows
-                            expandableRowsComponent={<ExpandableComponent />}
-                            data={filter.isFilter ? filter.filteredData : data}
                             subHeaderComponent={
                                 <SubHeaderComponent
                                     filter={filterItems}
                                     action={{
                                         uri: () => {
-                                            props.history.push("/urunler/ekle");
+                                            props.history.push(
+                                                "/kategori/ekle"
+                                            );
                                         },
-                                        title: "Yeni Ürün Ekle",
+                                        title: "Yeni Kategori Ekle",
                                         className: "btn btn-success",
                                     }}
                                 />
                             }
-                        />{" "}
-                    </div>{" "}
-                </div>{" "}
-            </div>{" "}
+                            data={filter.isFilter ? filter.filteredData : data}
+                        />
+                    </div>
+                </div>
+            </div>
         </Layout>
     );
 };
 
-export default inject("AuthStore")(observer(Index));
+export default inject("AuthStore")(observer(CategoryIndex));
